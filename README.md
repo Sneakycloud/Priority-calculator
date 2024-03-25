@@ -2,7 +2,7 @@
 
 What it does
 -----------
-The priority calculator performs mathematical operations on the command line, where operations within parentheses have priority.
+The priority calculator performs mathematical operations on the command line, where operations within parentheses have priority. Currently only the +, -, * and / operators are supported.
 
 How it works
 -----------
