@@ -24,7 +24,7 @@ How to compile and run
 =======
 
 
-Prodject management
+Project management
 =======
 [Kaban board](https://github.com/users/Sneakycloud/projects/1)
 
