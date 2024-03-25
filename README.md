@@ -4,7 +4,6 @@ What it does
 -----------
 The priority calculator performs mathematical operations on the command line, where operations within parentheses have priority. 
 
-Currently the supported operators are: +, -, *, / 
 
 How it works
 -----------
@@ -12,7 +11,7 @@ How it works
 
 Features
 -----------
-
+Currently the supported operators are: +, -, *, / 
 
 Language
 -----------
