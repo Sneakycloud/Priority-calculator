@@ -26,7 +26,7 @@ How to compile and run
 
 Project management
 =======
-[Kaban board](https://github.com/users/Sneakycloud/projects/1)
+[Kanban board](https://github.com/users/Sneakycloud/projects/1)
 
 
 List of members
