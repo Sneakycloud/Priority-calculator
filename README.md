@@ -32,10 +32,15 @@ Project management
 List of members
 =======
 Github handle - Firstname Lastname
+
 Sneakycloud - Eddie Olofsgård
+
 sodqv - Sara Odqvist
+
 ebbabrage - Ebba Brage
+
 sandzan - Sandra Carlsson
+
 
 
 Declaration section
