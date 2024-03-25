@@ -1,8 +1,5 @@
 # Priority-calculator
 
-Prodject plan: parentheses calculator
-=======
-
 What it does
 -----------
 
