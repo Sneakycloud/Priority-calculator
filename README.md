@@ -29,6 +29,15 @@ Project management
 [Kaban board](https://github.com/users/Sneakycloud/projects/1)
 
 
+List of members
+=======
+Github handle - Firstname Lastname
+Sneakycloud - Eddie Olofsgård
+sodqv - Sara Odqvist
+ebbabrage - Ebba Brage
+sandzan - Sandra Carlsson
+
+
 Declaration section
 =======
 
