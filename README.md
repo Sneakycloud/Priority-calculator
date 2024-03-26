@@ -49,3 +49,5 @@ I, Eddie Olofsgård, declare that I am the sole author of the content I add to t
 I, Ebba Brage, declare that I am the sole author of the content I add to this repository.
 
 I, Sara Odqvist, declare that I am the sole author of the content I add to this repository.
+
+I, Sandra Carlsson, declare that I am the sole author of the content I add to this repository
