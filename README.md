@@ -12,7 +12,7 @@ How it will work
 -----------
 The calculator is supposed to work like an RPN calculator with priority of parentheses. The user input will be converted 
 to RPN and the functions will operate with RPN. To convert the calculatur will be using the algorithm shunting yard to convert a 
-string input to RPN. A stack will be used to handle prioroties. 
+string input to RPN. A stack will be used to handle priorities. 
 
 Features to be implemented
 -----------
