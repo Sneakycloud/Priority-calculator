@@ -2,7 +2,8 @@
 
 What it does
 -----------
-The priority calculator performs mathematical operations on the command line, where operations within parentheses have priority. 
+The priority calculator performs mathematical operations, where operations within parentheses have priority. 
+
 
 Plan
 ============
@@ -15,9 +16,12 @@ Features
 -----------
 Currently the supported operators are: +, -, *, / 
 
+
+Graphical user interface to make the application user friendly.
+
 Language
 -----------
-The programming language is c#
+The programming languages used are C# and XAML.
 
 Build system
 -----------
