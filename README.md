@@ -28,7 +28,7 @@ The programming languages used are C# and XAML.
 
 Build system
 -----------
-
+.NET
 
 How to compile and run
 =======
