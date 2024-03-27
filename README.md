@@ -15,7 +15,7 @@ Currently the supported operators are: +, -, *, /
 
 Language
 -----------
-The programming language is c#
+The programming languages used are C# and XAML
 
 Build system
 -----------
