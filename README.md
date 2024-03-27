@@ -8,7 +8,7 @@ The priority calculator performs mathematical operations, where operations withi
 
 How it works
 -----------
-testing
+
 
 Features
 -----------
