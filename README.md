@@ -12,6 +12,8 @@ How it works
 Features
 -----------
 Currently the supported operators are: +, -, *, / 
+
+
 Graphical user interface to make the application user friendly.
 
 Language
