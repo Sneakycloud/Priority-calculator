@@ -8,14 +8,17 @@ The priority calculator performs mathematical operations, where operations withi
 Plan
 ============
 
-How it works
+How it will work
 -----------
+The calculator is supposed to work like an RPN calculator with priority of parentheses. The user input will be converted 
+to RPN and the functions will operate with RPN. To convert the calculatur will be using the algorithm shunting yard to convert a 
+string input to RPN. A stack will be used to handle prioroties. 
 
-
-Features
+Features to be implemented
 -----------
-Currently the supported operators are: +, -, *, / 
+Support of the operators: +, -, *, /
 
+Parentheses will have priority.
 
 Graphical user interface to make the application user friendly.
 
