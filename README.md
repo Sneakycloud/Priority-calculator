@@ -32,13 +32,7 @@ Build system
 
 How to compile and run
 =======
-To make the calculator we will implement a GUI where the user can push buttoms to simulate a real calculator.
-
-| Compilation examples:			| Expected output:		|
-|-------------------------------|-----------------------|
-| 3 + 5 - (2 * 4) * (1 + 5)		| -40					|
-| (4 - 2) * (2 / 4)				| 1						|
-| 8 * 3 / (4 - 3)				| 24					|
+Later there will be an .exe file available for usage
 
 
 Project management
