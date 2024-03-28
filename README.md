@@ -2,7 +2,7 @@
 
 What it does
 -----------
-The priority calculator performs mathematical operations, where operations within parentheses have priority. 
+The priority calculator is a calculator with a GUI which supports the order of operations.
 
 
 Plan
