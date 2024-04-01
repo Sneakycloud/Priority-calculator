@@ -8,6 +8,8 @@ namespace Calculator.Tokens
 {
     abstract class token
     {
+        public int priority { get; set; }
+
         public abstract double eval(Stack<token> inputStack);
         
     }
