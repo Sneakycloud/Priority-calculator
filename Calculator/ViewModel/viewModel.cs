@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Calculator.ViewModel
 {
-    internal class viewModel
+    public class viewModel
     {
+        public string InputExpression { get; set; }
+        public string OutputExpression { get; set; } = string.Empty;
+
+        //Uses input expression as input and changes output expression
+        public void calculator()
+        {
+
+
+
+        }
+
     }
 }
