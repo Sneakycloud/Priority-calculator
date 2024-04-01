@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Calculator.Model;
+using Calculator.Tokens;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,18 @@ namespace Calculator.ViewModel
         public void calculator()
         {
 
+            //Test for shuntingYard
+            /*
+            Queue<Token> tokenQueue = new Queue<Token>();
+            tokenQueue.Enqueue(new Num(10));
+            tokenQueue.Enqueue(new SubOP());
+            tokenQueue.Enqueue(new Num(2));
+            tokenQueue.Enqueue(new MultOP());
+            tokenQueue.Enqueue(new Num(3));
 
+            Stack<Token> RPNstack = ShuntingYard.ToRPN(tokenQueue);
+            Console.WriteLine("The value was " + RPNstack.Pop().eval(RPNstack));
+            */
 
         }
 
