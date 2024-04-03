@@ -8,5 +8,9 @@ namespace Calculator.Tokens
 {
     public class TokenFactory
     {
+        public Token CreateToken(string tokenType, double? value = null)
+        {
+
+        }
     }
 }
