@@ -8,9 +8,6 @@ namespace Calculator.Tokens
 {
     public class TokenFactory
     {
-        public Token CreateToken(string tokenType, double? value = null)
-        {
-
-        }
+        // get a string from the OP classes and return the correct token subclass
     }
 }
