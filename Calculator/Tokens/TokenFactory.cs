@@ -8,6 +8,37 @@ namespace Calculator.Tokens
 {
     public class TokenFactory
     {
-        // get a string from the OP classes and return the correct token subclass
+        // get a string from the  and return the correct token subclass
+        // take an input string part from the queue converter and 
+
+
+        // takes a string and returns the correct token subclass
+        public Token createToken(string stringPart)
+        {
+            if (double.TryParse(stringPart, out var doubleValue))
+            {
+                return new Num(doubleValue);
+            }
+            else if (stringPart == "+")
+            {
+                return new AddOP();
+            }
+            else if (stringPart == "-")
+            {
+                return new SubOP();
+            }
+            else if (stringPart == "*")
+            {
+                return new MultOP();
+            }
+            else if (stringPart == "/")
+            {
+                return new DivOP();
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
     }
 }
