@@ -32,7 +32,7 @@ Build system
 
 How to compile and run
 =======
-Later there will be an .exe file available for usage
+Install/open Visual Studio. In the Calculator folder dubble click on the `Calculator.sln` file
 
 
 Project management
