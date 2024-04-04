@@ -34,10 +34,11 @@ namespace Calculator.ViewModel
         public void calculator()
         {
 
-            
+            // split the input expression into token elements and put it in a string queue
             Queue<string> parsedResult = Parser.ParseExpression(InputExpression);
 
-            //Queue<Token> tokenQueue = TokenQueueConverter 
+            // convert string queue to token queue.
+            Queue<Token> tokenQueue = TokenQueueConverter.createTokenQueue(parsedResult);
 
             //Test for shuntingYard
             /*
