@@ -24,5 +24,10 @@ namespace Calculator.View
         {
             InitializeComponent();
         }
+
+        private void btn1_Click(object sender, RoutedEventArgs e)
+        {
+            tbx.Text += "1";
+        }
     }
 }

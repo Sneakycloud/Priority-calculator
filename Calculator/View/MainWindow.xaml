@@ -5,20 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="400" Background="Pink">
+        Title="MainWindow" Height="600" Width="400" Background="Cornsilk">
     <Grid>
-
-		<Button Content="1" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-		<Button Content="2" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-		<Button Content="3" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-		<Button Content="4" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-		<Button Content="5" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-		<Button Content="6" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-		<Button Content="7" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-		<Button Content="8" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-		<Button Content="9" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-		<Button Content="10" HorizontalAlignment="Left" Margin="85,62,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" Click="Button_New" Background="#FFE1CA96" Foreground="#FFFEFEFE" BorderBrush="#FFE1CA96" Width="90" Height="40" FontSize="14"/>
-
-
-	</Grid>
+        <TextBox Name="tbx" Margin="10,59,10,445" />
+        <Button Name="btn1" Content="1" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" FontFamily="Consolas" Background="Plum" Foreground="Black" Width="80" Height="79" FontSize="55" FontWeight="Bold" Click="btn1_Click"/>
+    </Grid>
 </Window>
