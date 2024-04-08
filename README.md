@@ -81,5 +81,7 @@ I, Sandra Carlsson, declare that I am the sole author of the content I add to th
 External assets used
 =======
 [FluentAssertions](https://github.com/fluentassertions/fluentassertions)
+
 [ReportGenertor](https://github.com/danielpalme/ReportGenerator)
+
 [Coverlet](https://github.com/coverlet-coverage/coverlet)
