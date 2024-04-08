@@ -2,7 +2,7 @@
 
 What it does
 -----------
-The priority calculator performs mathematical operations, where operations within parentheses have priority. 
+The priority calculator is a calculator with a GUI which supports the order of operations.
 
 
 Plan
@@ -32,13 +32,7 @@ Build system
 
 How to compile and run
 =======
-To make the calculator we will implement a GUI where the user can push buttoms to simulate a real calculator.
-
-| Compilation examples:			| Expected output:		|
-|-------------------------------|-----------------------|
-| 3 + 5 - (2 * 4) * (1 + 5)		| -40					|
-| (4 - 2) * (2 / 4)				| 1						|
-| 8 * 3 / (4 - 3)				| 24					|
+Install/open Visual Studio. In the Calculator folder dubble click on the `Calculator.sln` file
 
 
 Project management
