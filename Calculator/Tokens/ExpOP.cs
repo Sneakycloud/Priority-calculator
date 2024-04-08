@@ -8,7 +8,7 @@ namespace Calculator.Tokens
 {
     public class ExpOP : Token
     {
-        public ExpOP() : base(2) { }
+        public ExpOP() : base(2, false) { }
 
         public override double eval(Stack<Token> inputStack)
         {

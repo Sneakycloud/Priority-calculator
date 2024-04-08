@@ -8,7 +8,7 @@ namespace Calculator.Tokens
 {
     public class MultOP : Token
     {
-        public MultOP() : base(1) { }
+        public MultOP() : base(1, true) { }
 
         public override double eval(Stack<Token> inputStack)
         {
