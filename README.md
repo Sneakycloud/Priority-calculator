@@ -34,6 +34,21 @@ How to compile and run
 =======
 Install/open Visual Studio. In the Calculator folder dubble click on the `Calculator.sln` file
 
+Unit testing
+-----------
+To run unit tests, open visual studio and open prodject, then hover over test in the topbar and click run all tests.
+
+Create xml report.
+dotnet test --collect:"XPlat Code Coverage"
+
+reportgenerator: Convert xml to html report
+reportgenerator -reports:"**\TestResults\**\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
+1. Use above command
+2. Open index in CoverageReport folder and open Index.html
+
+Coverlet: Convert xml to cmd report
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+
 
 Project management
 =======
@@ -61,3 +76,12 @@ I, Ebba Brage, declare that I am the sole author of the content I add to this re
 I, Sara Odqvist, declare that I am the sole author of the content I add to this repository.
 
 I, Sandra Carlsson, declare that I am the sole author of the content I add to this repository
+
+
+External assets used
+=======
+[FluentAssertions](https://github.com/fluentassertions/fluentassertions)
+
+[ReportGenertor](https://github.com/danielpalme/ReportGenerator)
+
+[Coverlet](https://github.com/coverlet-coverage/coverlet)
