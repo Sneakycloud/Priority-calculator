@@ -25,9 +25,19 @@ namespace Calculator.View
             InitializeComponent();
         }
 
-        private void btn1_Click(object sender, RoutedEventArgs e)
+        private void btn_Click(object sender, RoutedEventArgs e)
         {
-            tbx.Text += "1";
+            Button btn = (Button)sender;
+            string btnS = (string)btn.Content;
+
+            if (btnS == "C")
+                tbx.Text = "";
+            else if (btnS == "+" || btnS == "-" || btnS == "*" || btnS == "/")
+                tbx.Text += " " + btn.Content + " ";
+            //else if (btnS == "DEL")
+                //tbx.Text = tbx.Text.Remove(TextBox.Text.LastIndexOf(','), 1);
+            else
+                tbx.Text += btn.Content;
         }
     }
 }
