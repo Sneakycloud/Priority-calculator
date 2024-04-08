@@ -30,29 +30,30 @@ namespace Calculator.ViewModel
             set { _expression = value; OnPropertyChanged(); }
         }
 
-        //Uses input expression as input and changes output expression
+        //Uses input expression as input and changes output expression, works as a relay
         public void calculator()
         {
+            OutputExpression = $"{evaluateExpression(InputExpression)}";
+        }
 
+        private double evaluateExpression(string input)
+        {
             // split the input expression into token elements and put it in a string queue
-            Queue<string> parsedResult = Parser.ParseExpression(InputExpression);
+            Queue<string> parsedResult = Parser.ParseExpression(input);
 
             // convert string queue to token queue.
             Queue<Token> tokenQueue = TokenQueueConverter.createTokenQueue(parsedResult);
 
-            //Test for shuntingYard
-            /*
-            Queue<Token> tokenQueue = new Queue<Token>();
-            tokenQueue.Enqueue(new Num(10));
-            tokenQueue.Enqueue(new SubOP());
-            tokenQueue.Enqueue(new Num(2));
-            tokenQueue.Enqueue(new MultOP());
-            tokenQueue.Enqueue(new Num(3));
-
+            // Converts the expression from infix to RPN
             Stack<Token> RPNstack = ShuntingYard.ToRPN(tokenQueue);
-            Console.WriteLine("The value was " + RPNstack.Pop().eval(RPNstack));
-            */
 
+            // Starts a pop on th RPNstack which results in a chain reaction that returns the correct double value of the input
+            double result = RPNstack.Pop().eval(RPNstack);
+
+            //Check if the expression was completely evaluated
+            if (RPNstack.Count == 1 ) { throw new Exception(); }
+
+            return result;
         }
 
     }
