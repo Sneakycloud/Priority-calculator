@@ -39,14 +39,17 @@ Unit testing
 To run unit tests, open visual studio and open prodject, then hover over test in the topbar and click run all tests.
 
 Create xml report.
+
 dotnet test --collect:"XPlat Code Coverage"
 
 reportgenerator: Convert xml to html report
+
 reportgenerator -reports:"**\TestResults\**\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
 1. Use above command
 2. Open index in CoverageReport folder and open Index.html
 
 Coverlet: Convert xml to cmd report
+
 dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
 
