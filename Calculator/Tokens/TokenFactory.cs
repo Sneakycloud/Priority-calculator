@@ -35,6 +35,18 @@ namespace Calculator.Tokens
             {
                 return new DivOP();
             }
+            else if (stringPart == "^")
+            {
+                return new ExpOP();
+            }
+            else if (stringPart == "(")
+            {
+                return new LeftParentheses();
+            }
+            else if (stringPart == ")")
+            {
+                return new RightParentheses();
+            }
             else
             {
                 throw new Exception();
