@@ -13,12 +13,16 @@ namespace Calculator.Tokens
 
         public override double eval(Stack<Token> inputStack)
         {
-            // pop the first and second tokens from the inputStack and evaluate them recursively
-            double eval1 = inputStack.Pop().eval(inputStack);
-            double eval2 = inputStack.Pop().eval(inputStack);
+            (double, double) values = getValues(inputStack);
+
+            //Divide by 0 check
+            if(values.Item1 == 0)
+            {
+                throw new Exception();
+            }
 
             // return the quota of the two evaluated tokens
-            return eval1 / eval2;
+            return values.Item2 / values.Item1;
         }
 
 
