@@ -20,12 +20,10 @@ namespace Calculator.Tokens
         // method to evaluate the add operation
         public override double eval(Stack<Token> inputStack)
         {
-            // pop the first and second token from the inputStack and evaluate them recursively
-            double eval1 = inputStack.Pop().eval(inputStack);
-            double eval2 = inputStack.Pop().eval(inputStack);
+            (double,double) values = getValues(inputStack);
 
             // return the sum of the two evaluated tokens
-            return eval1 + eval2;
+            return values.Item2 + values.Item1;
         }
 
         // override to return a string representation of the add token

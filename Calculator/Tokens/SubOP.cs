@@ -12,9 +12,8 @@ namespace Calculator.Tokens
 
         public override double eval(Stack<Token> inputStack)
         {
-            double eval1 = inputStack.Pop().eval(inputStack);
-            double eval2 = inputStack.Pop().eval(inputStack);
-            return eval2 - eval1;
+            (double, double) values = getValues(inputStack);
+            return values.Item2 - values.Item1;
         }
 
         public override string ToString()
