@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,14 +31,28 @@ namespace Calculator.View
             Button btn = (Button)sender;
             string btnS = (string)btn.Content;
 
+            // delete all
             if (btnS == "C")
+            {
                 tbx.Text = "";
-            else if (btnS == "+" || btnS == "-" || btnS == "*" || btnS == "/")
-                tbx.Text += " " + btn.Content + " ";
-            //else if (btnS == "DEL")
-                //tbx.Text = tbx.Text.Remove(TextBox.Text.LastIndexOf(','), 1);
+            }
+            // delete one character
+            else if (btnS == "DEL") 
+            {
+                if (tbx.Text != "")
+                    tbx.Text = tbx.Text.Remove(tbx.Text.Length - 1, 1);
+            }
+            // calculate and output the result
+            else if (btnS == "=")
+            {
+                viewModel.InputExpression = tbx.Text;
+                tbx.Text = viewModel.OutputExpression;
+            }
+            // add the number / operation
             else
+            {
                 tbx.Text += btn.Content;
+            }
         }
     }
 }
