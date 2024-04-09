@@ -40,11 +40,13 @@ To run unit tests, open visual studio and open prodject, then hover over test in
 
 
 How to create a xml report:
-Run the following command in the test projects terminal in Visual Studio: dotnet test --collect:"XPlat Code Coverage"
+Run the following command in the test projects terminal in Visual Studio: 
+dotnet test --collect:"XPlat Code Coverage"
 
 
 Coverlet: Convert xml to a cmd report.
-Run the following command in the test projects terminal: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+Run the following command in the test projects terminal: 
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
 
 
