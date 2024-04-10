@@ -55,7 +55,14 @@ reportgenerator -reports:"**\TestResults\**\coverage.cobertura.xml" -targetdir:"
 1. Use above command
 2. Open index in CoverageReport folder and open Index.html
 
+Linter
+---------------------
+Install SonarLint via https://www.sonarsource.com/products/sonarlint/ide-login/, 
+or go to Visual Studio -> Extensions -> Manage Extentions -> search for "SonarLint" and click on "DOWNLOAD"
 
+When SonarLint is installed you will se inline syntax highlights on your code. You will also a full list of issues in an 
+paricular file in the error list. You can rightclick on the error and click "error help" to get futher information about 
+the error such as why an issue is raised and how to solve it.  
 
 Project management
 =======
