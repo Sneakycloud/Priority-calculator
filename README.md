@@ -62,7 +62,11 @@ or go to Visual Studio -> Extensions -> Manage Extentions -> search for "SonarLi
 
 When SonarLint is installed you will se inline syntax highlights on your code. You will also see a full list of issues in an 
 paricular file in the error list. You can rightclick on the error and click "error help" to get futher information about 
-the error such as why an issue is raised and how to solve it.  
+the error such as why an issue is raised and how to solve it. 
+
+CI Badge
+---------------------
+[![.NET Core Desktop](https://github.com/Sneakycloud/Priority-calculator/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Sneakycloud/Priority-calculator/actions/workflows/dotnet-desktop.yml)
 
 Project management
 =======
