@@ -72,4 +72,4 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test Calculator.Tests/CalculatorTests.csproj --verbosity normal
+      run: dotnet test Calculator.Tests/CalculatorTests.csproj --no-restore --verbosity normal
