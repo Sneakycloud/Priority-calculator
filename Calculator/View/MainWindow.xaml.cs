@@ -26,33 +26,33 @@ namespace Calculator.View
             InitializeComponent();
         }
 
-        private void btn_Click(object sender, RoutedEventArgs e)
+        private void num_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            string btnS = (string)btn.Content;
+        
+            // add numbers
+            tbx.Text += btn.Content;        
+        }
 
+        private void C_Click(object sender, RoutedEventArgs e)
+        {
             // delete all
-            if (btnS == "C")
-            {
-                tbx.Text = "";
-            }
+            tbx.Text = "";
+        }
+
+        private void del_Click(object sender, RoutedEventArgs e)
+        {
             // delete one character
-            else if (btnS == "DEL") 
-            {
-                if (tbx.Text != "")
-                    tbx.Text = tbx.Text.Remove(tbx.Text.Length - 1, 1);
-            }
+            if (tbx.Text != "")
+                tbx.Text = tbx.Text.Remove(tbx.Text.Length - 1, 1);
+        }
+
+        private void equ_Click(object sender, RoutedEventArgs e)
+        {
+
             // calculate and output the result
-            else if (btnS == "=")
-            {
-                viewModel.InputExpression = tbx.Text;
-                tbx.Text = viewModel.OutputExpression;
-            }
-            // add the number / operation
-            else
-            {
-                tbx.Text += btn.Content;
-            }
+            viewModel.InputExpression = tbx.Text;
+            tbx.Text = viewModel.OutputExpression;
         }
 
         private void op_Click(object sender, RoutedEventArgs e)
