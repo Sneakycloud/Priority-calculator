@@ -10,8 +10,8 @@ namespace Calculator.ViewModel
 {
     public class viewModel
     {
-        public string InputExpression { get; set; }
-        public string OutputExpression { get; set; } = string.Empty;
+        public static string InputExpression { get; set; } = string.Empty;
+        public static string OutputExpression { get; set; } = "Success";
 
         //Uses input expression as input and changes output expression, works as a relay
         public void calculator()
