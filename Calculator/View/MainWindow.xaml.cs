@@ -54,5 +54,12 @@ namespace Calculator.View
                 tbx.Text += btn.Content;
             }
         }
+
+        private void op_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            tbx.Text += " " + btn.Content + " ";
+        }
+
     }
 }
