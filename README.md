@@ -48,13 +48,6 @@ dotnet test --collect:"XPlat Code Coverage"
 Run the following command in the test projects terminal:  
 dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
-
-
-reportgenerator: Convert xml to html report
-reportgenerator -reports:"**\TestResults\**\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
-1. Use above command
-2. Open index in CoverageReport folder and open Index.html
-
 Linter
 ---------------------
 Install SonarLint via https://www.sonarsource.com/products/sonarlint/ide-login/, 
