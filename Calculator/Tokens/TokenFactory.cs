@@ -35,6 +35,10 @@ namespace Calculator.Tokens
             {
                 return new DivOP();
             }
+            else if (stringPart == "%")
+            {
+                return new ModuloOP();
+            }
             else if (stringPart == "^")
             {
                 return new ExpOP();
