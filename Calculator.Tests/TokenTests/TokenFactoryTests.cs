@@ -60,16 +60,16 @@ namespace CalculatorTests.TokenTests
         [Theory]
         [InlineData("abc", typeof(AddOP))]
         [InlineData("abc", typeof(MultOP))]
-
         public void testTokenFactory_failTest_returnsFail(string failTestInput, Type expectedType)
         {
             //Arrange
 
             //Act
-            Token token = TokenFactory.createToken(failTestInput);
+            Action test = () => { Token token = TokenFactory.createToken(failTestInput); };
 
             //Assert
-            Assert.IsType(expectedType, token);
+            test.Should().Throw<Exception>();
+
         }
     }
 }
