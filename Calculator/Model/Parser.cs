@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Calculator.Model
 {
@@ -14,11 +15,6 @@ namespace Calculator.Model
         // Parser.parse(”2+10”) = [”2”,”+”,”10”] = parsedResult         //where parsedResult is the string queue
 
 
-        // change so the code can evaluate what each element is and if there is no operator or paranthesis between numbers,
-        // then the number is more than one number long.
-        // If the input is (22+3) then it should be able to make out that 22 is a number and not 2 and 2.
-        // so split the string only after each operator or parenthesis.
-
 
         public static Queue<string> ParseExpression(string inputExpression)
         {            
@@ -27,14 +23,22 @@ namespace Calculator.Model
             Queue<string> parsedResult = new Queue<string>();
 
 
-            // split the inputExpression string into individual tokens (words) and add them to the input string.
-            string[] input = inputExpression.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            //Define a pattern of operators
+            string pattern = @"([\+\-\*\/\(\)\^])";
 
 
-            // enqueue the tokens into the parsedResult queue
+            //split the inputExpression string using the pattern
+            string[] input = Regex.Split(inputExpression, pattern);
+
+
+            // enqueue the tokens into the parsedResult queue, skip empty strings
             foreach (string token in input)
             {
-                parsedResult.Enqueue(token);
+                if(!string.IsNullOrWhiteSpace(token))
+                {
+                    parsedResult.Enqueue(token);
+                }
             }
 
 
