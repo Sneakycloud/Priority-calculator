@@ -31,12 +31,12 @@ namespace Calculator.ViewModel
         }
 
         //Uses input expression as input and changes output expression, works as a relay
-        public void calculator()
+        public void Calculator()
         {
-            OutputExpression = $"{evaluateExpression(InputExpression)}";
+            Expression = $"{EvaluateExpression(Expression)}";
         }
 
-        private double evaluateExpression(string input)
+        private double EvaluateExpression(string input)
         {
             // split the input expression into token elements and put it in a string queue
             Queue<string> parsedResult = Parser.ParseExpression(input);

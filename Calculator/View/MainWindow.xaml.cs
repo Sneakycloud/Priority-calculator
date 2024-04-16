@@ -24,9 +24,12 @@ namespace Calculator.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        private viewModel _vm;
+
         public MainWindow()
         {
             InitializeComponent();
+            _vm = (viewModel)this.DataContext;
         }
 
         private void num_Click(object sender, RoutedEventArgs e)
@@ -34,33 +37,35 @@ namespace Calculator.View
             Button btn = (Button)sender;
 
             // add numbers
-            tbx.Text += btn.Content;
+            _vm.Expression += btn.Content;
         }
 
         private void C_Click(object sender, RoutedEventArgs e)
         {
             // delete all
-            tbx.Text = "";
+            _vm.Expression = "";
         }
 
         private void del_Click(object sender, RoutedEventArgs e)
         {
             // delete one character
-            if (tbx.Text != "")
-                tbx.Text = tbx.Text.Remove(tbx.Text.Length - 1, 1);
+            if (_vm.Expression != "")
+                _vm.Expression = _vm.Expression.Remove(_vm.Expression.Length - 1, 1);
         }
 
         private void equ_Click(object sender, RoutedEventArgs e)
         {
 
             // calculate and output the result
-            
+            viewModel vm = (viewModel)this.DataContext;
+            vm.Calculator();
+
         }
 
         private void op_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            tbx.Text += " " + btn.Content + " ";
+            _vm.Expression += btn.Content;
         }
 
     }
