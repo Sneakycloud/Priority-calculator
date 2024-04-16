@@ -22,11 +22,12 @@ namespace Calculator.ViewModel
         public string InputExpression { get; set; } = string.Empty;
         public string OutputExpression { get; set; } = "Success";
 
-        public string expression { get; set; } = string.Empty;
+        //Data binding for GUI
+        public string _expression = string.Empty;
         public string Expression
         {
-            get => expression;
-            set { expression = value; OnPropertyChanged(); }
+            get => _expression;
+            set { _expression = value; OnPropertyChanged(); }
         }
 
         //Uses input expression as input and changes output expression
