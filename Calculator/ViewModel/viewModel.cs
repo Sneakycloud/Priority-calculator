@@ -2,14 +2,24 @@
 using Calculator.Tokens;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Calculator.ViewModel
 {
-    public class viewModel
+    public class viewModel : INotifyPropertyChanged
     {
+        
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public static string InputExpression { get; set; } = string.Empty;
         public static string OutputExpression { get; set; } = "Success";
 
