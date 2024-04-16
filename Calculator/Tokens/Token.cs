@@ -16,6 +16,7 @@ namespace Calculator.Tokens
 
         public readonly int priority;
         public readonly bool leftAssosiative;
+        //Returns the value contained or the calculates it's value based on the operator.
         public abstract double eval(Stack<Token> inputStack);
         public abstract string ToString();
         

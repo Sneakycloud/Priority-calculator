@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,41 @@ namespace Calculator.View
         {
             InitializeComponent();
         }
+
+        private void num_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+        
+            // add numbers
+            tbx.Text += btn.Content;        
+        }
+
+        private void C_Click(object sender, RoutedEventArgs e)
+        {
+            // delete all
+            tbx.Text = "";
+        }
+
+        private void del_Click(object sender, RoutedEventArgs e)
+        {
+            // delete one character
+            if (tbx.Text != "")
+                tbx.Text = tbx.Text.Remove(tbx.Text.Length - 1, 1);
+        }
+
+        private void equ_Click(object sender, RoutedEventArgs e)
+        {
+
+            // calculate and output the result
+            viewModel.InputExpression = tbx.Text;
+            tbx.Text = viewModel.OutputExpression;
+        }
+
+        private void op_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            tbx.Text += " " + btn.Content + " ";
+        }
+
     }
 }

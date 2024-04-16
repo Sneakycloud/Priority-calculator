@@ -38,17 +38,28 @@ Unit testing
 -----------
 To run unit tests, open visual studio and open prodject, then hover over test in the topbar and click run all tests.
 
-Create xml report.
+
+**How to create a xml report:**  
+Run the following command in the test projects terminal in Visual Studio:  
 dotnet test --collect:"XPlat Code Coverage"
 
-reportgenerator: Convert xml to html report
-reportgenerator -reports:"**\TestResults\**\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
-1. Use above command
-2. Open index in CoverageReport folder and open Index.html
 
-Coverlet: Convert xml to cmd report
+**Coverlet: Convert xml to a cmd report.**  
+Run the following command in the test projects terminal:  
 dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
+Linter
+---------------------
+Install SonarLint via https://www.sonarsource.com/products/sonarlint/ide-login/, 
+or go to Visual Studio -> Extensions -> Manage Extentions -> search for "SonarLint" and click on "DOWNLOAD"
+
+When SonarLint is installed you will se inline syntax highlights on your code. You will also see a full list of issues in an 
+paricular file in the error list. You can rightclick on the error and click "error help" to get futher information about 
+the error such as why an issue is raised and how to solve it. 
+
+CI Badge
+---------------------
+[![.NET Core Desktop](https://github.com/Sneakycloud/Priority-calculator/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Sneakycloud/Priority-calculator/actions/workflows/dotnet-desktop.yml)
 
 Project management
 =======
