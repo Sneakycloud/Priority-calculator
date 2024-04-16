@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Calculator.Tokens
+{
+    public class ModuloOP : Token
+    {
+        public ModuloOP() : base(1, true) { }
+
+        public override double eval(Stack<Token> inputStack)
+        {
+            (double, double) values = getValues(inputStack);
+            return values.Item2 % values.Item1;
+        }
+
+        public override string ToString()
+        {
+            return "%";
+        }
+    }
+}
