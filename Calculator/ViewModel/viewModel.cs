@@ -19,13 +19,14 @@ namespace Calculator.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public string InputExpression { get; set; } = string.Empty;
+        public string OutputExpression { get; set; } = "Success";
 
-        public string expression = string.Empty;
-
+        public string expression { get; set; } = string.Empty;
         public string Expression
         {
             get => expression;
-            set { expression = "Success"; OnPropertyChanged(); }
+            set { expression = value; OnPropertyChanged(); }
         }
 
         //Uses input expression as input and changes output expression
