@@ -5,6 +5,7 @@
              xmlns:viewModel="clr-namespace:Calculator.ViewModel"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <viewModel:viewModel x:Key ="MainViewModel" />
     </Application.Resources>
+
 </Application>

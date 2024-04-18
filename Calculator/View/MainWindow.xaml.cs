@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Linq.Expressions;
 
 namespace Calculator.View
 {
@@ -29,9 +32,9 @@ namespace Calculator.View
         private void num_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-        
+
             // add numbers
-            tbx.Text += btn.Content;        
+            tbx.Text += btn.Content;
         }
 
         private void C_Click(object sender, RoutedEventArgs e)
@@ -51,8 +54,7 @@ namespace Calculator.View
         {
 
             // calculate and output the result
-            viewModel.InputExpression = tbx.Text;
-            tbx.Text = viewModel.OutputExpression;
+            
         }
 
         private void op_Click(object sender, RoutedEventArgs e)
