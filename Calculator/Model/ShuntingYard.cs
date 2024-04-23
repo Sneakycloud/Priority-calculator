@@ -36,14 +36,17 @@ namespace Calculator.Model
                     {
                         RPNstack.Push(operatorStack.Pop());
                     }
-                    operatorStack.Pop(); //Gets rid of the "("
-                    tokenQueue.Dequeue();
 
                     //Check if the expression was invalid
                     if (operatorStack.Count == 0)
                     {
                         throw new Exception();
-                    } 
+                    }
+
+                    operatorStack.Pop(); //Gets rid of the "("
+                    tokenQueue.Dequeue();
+
+                    
                 }
                 else //Handles operators
                 {
