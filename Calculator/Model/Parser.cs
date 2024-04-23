@@ -25,7 +25,9 @@ namespace Calculator.Model
 
 
             //Define a pattern of operators
-            string pattern = @"([\+\-\*\/\(\)\^])";
+
+            string pattern = @"([\+\-\*\/\(\)\^\%])";
+
 
 
             //split the inputExpression string using the pattern

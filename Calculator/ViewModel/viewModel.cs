@@ -22,20 +22,21 @@ namespace Calculator.ViewModel
         public string InputExpression { get; set; } = string.Empty;
         public string OutputExpression { get; set; } = "Success";
 
-        public string expression { get; set; } = string.Empty;
+        //Data binding for GUI
+        public string _expression = string.Empty;
         public string Expression
         {
-            get => expression;
-            set { expression = value; OnPropertyChanged(); }
+            get => _expression;
+            set { _expression = value; OnPropertyChanged(); }
         }
 
         //Uses input expression as input and changes output expression, works as a relay
-        public void calculator()
+        public void Calculator()
         {
-            OutputExpression = $"{evaluateExpression(InputExpression)}";
+            Expression = $"{EvaluateExpression(Expression)}";
         }
 
-        private double evaluateExpression(string input)
+        private double EvaluateExpression(string input)
         {
             // split the input expression into token elements and put it in a string queue
             Queue<string> parsedResult = Parser.ParseExpression(input);
