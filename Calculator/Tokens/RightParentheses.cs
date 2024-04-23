@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace Calculator.Tokens
 {
-    public class SubOP : Token
+    public class RightParentheses : Token
     {
-        public SubOP() : base(0, true) { }
+        public RightParentheses() : base(3, true) { }
 
+        //This is only called if something has gone wrong, i.e the expression is not valid
         public override double eval(Stack<Token> inputStack)
         {
-            (double, double) values = getValues(inputStack);
-            return values.Item2 - values.Item1;
+            throw new Exception();
         }
-
         public override string ToString()
         {
-            return "-";
+            return ")";
         }
     }
 }

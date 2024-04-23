@@ -22,30 +22,38 @@ namespace Calculator.ViewModel
         public string InputExpression { get; set; } = string.Empty;
         public string OutputExpression { get; set; } = "Success";
 
-        public string expression { get; set; } = string.Empty;
+        //Data binding for GUI
+        public string _expression = string.Empty;
         public string Expression
         {
-            get => expression;
-            set { expression = value; OnPropertyChanged(); }
+            get => _expression;
+            set { _expression = value; OnPropertyChanged(); }
         }
 
-        //Uses input expression as input and changes output expression
-        public void calculator()
+        //Uses input expression as input and changes output expression, works as a relay
+        public void Calculator()
         {
+            Expression = $"{EvaluateExpression(Expression)}";
+        }
 
-            //Test for shuntingYard
-            /*
-            Queue<Token> tokenQueue = new Queue<Token>();
-            tokenQueue.Enqueue(new Num(10));
-            tokenQueue.Enqueue(new SubOP());
-            tokenQueue.Enqueue(new Num(2));
-            tokenQueue.Enqueue(new MultOP());
-            tokenQueue.Enqueue(new Num(3));
+        private double EvaluateExpression(string input)
+        {
+            // split the input expression into token elements and put it in a string queue
+            Queue<string> parsedResult = Parser.ParseExpression(input);
 
+            // convert string queue to token queue.
+            Queue<Token> tokenQueue = TokenQueueConverter.createTokenQueue(parsedResult);
+
+            // Converts the expression from infix to RPN
             Stack<Token> RPNstack = ShuntingYard.ToRPN(tokenQueue);
-            Console.WriteLine("The value was " + RPNstack.Pop().eval(RPNstack));
-            */
 
+            // Starts a pop on th RPNstack which results in a chain reaction that returns the correct double value of the input
+            double result = RPNstack.Pop().eval(RPNstack);
+
+            //Check if the expression was completely evaluated
+            if (RPNstack.Count == 1 ) { throw new Exception(); }
+
+            return result;
         }
 
     }

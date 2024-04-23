@@ -9,6 +9,7 @@ namespace Calculator.Model
 {
     public abstract class ShuntingYard
     {
+        //Made using the shunting yard algoritm, https://en.wikipedia.org/wiki/Shunting_yard_algorithm
         public static Stack<Token> ToRPN(Queue<Token> tokenQueue)
         {
             Stack<Token> operatorStack = new Stack<Token>();
@@ -35,17 +36,26 @@ namespace Calculator.Model
                     {
                         RPNstack.Push(operatorStack.Pop());
                     }
-                    operatorStack.Pop(); //Gets rid of the "("
 
                     //Check if the expression was invalid
                     if (operatorStack.Count == 0)
                     {
                         throw new Exception();
-                    } 
+                    }
+
+                    operatorStack.Pop(); //Gets rid of the "("
+                    tokenQueue.Dequeue();
+
+                    
                 }
                 else //Handles operators
                 {
-                    while (operatorStack.Count > 0 && (operatorStack.Peek().priority >= tokenQueue.Peek().priority && operatorStack.Peek().ToString() != "("))
+                    /*
+                     there is an operator o2 at the top of the operator stack which is not a left parenthesis, 
+                     and (o2 has greater precedence than o1 or (o1 and o2 have the same precedence and o1 is left-associative))
+                    https://en.wikipedia.org/wiki/Shunting_yard_algorithm
+                     */
+                    while (operatorStack.Count > 0 && operatorStack.Peek().ToString() != "(" && (operatorStack.Peek().priority > tokenQueue.Peek().priority || (operatorStack.Peek().priority == tokenQueue.Peek().priority && tokenQueue.Peek().leftAssosiative) ))
                     {
                         RPNstack.Push(operatorStack.Pop());
                     }

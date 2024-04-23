@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Calculator.Tokens
 {
-    public class SubOP : Token
+    public class ExpOP : Token
     {
-        public SubOP() : base(0, true) { }
+        public ExpOP() : base(2, false) { }
 
         public override double eval(Stack<Token> inputStack)
         {
             (double, double) values = getValues(inputStack);
-            return values.Item2 - values.Item1;
+            return Math.Pow(values.Item2, values.Item1);
         }
 
         public override string ToString()
         {
-            return "-";
+            return "^";
         }
     }
 }
