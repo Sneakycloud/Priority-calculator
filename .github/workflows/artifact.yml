@@ -3,11 +3,8 @@ name: "create executable"
 on:
   push:
     tags:
-      -v*
+      - "v*"
       
-    branches:
-      - 'Backend'
-
 jobs:
   deploy:
       runs-on: windows-latest
