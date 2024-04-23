@@ -64,6 +64,7 @@ namespace Calculator.View
 
         private void op_Click(object sender, RoutedEventArgs e)
         {
+            // register if you click an operation
             Button btn = (Button)sender;
             _vm.Expression += btn.Content;
         }
