@@ -26,7 +26,7 @@ namespace Calculator.Model
 
             //Define a pattern of operators
 
-            string pattern = @"([\+\-\*\/\(\)\^\%])";
+            string pattern = @"([\+\-\*\/\(\)\^\%\!])";
 
 
 
