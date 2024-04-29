@@ -28,7 +28,7 @@ namespace CalculatorTests.TokenTests
         }
 
         [Fact]
-        public void ModuloOP_ToString_ReturnsStringDivisor()
+        public void ModuloOP_ToString_ReturnsString()
         {
             //Arrange
             ModuloOP Test = new ModuloOP();
