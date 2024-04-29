@@ -1,4 +1,5 @@
-﻿using Calculator.Tokens;
+﻿using Calculator.Model;
+using Calculator.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,22 @@ namespace CalculatorTests.TokenTests
 
             //Assert
             result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void DivOP_Eval_ReturnsDivideByZeroException()
+        {
+            //Arrange
+            Stack<Token> testStack = new Stack<Token>();
+            testStack.Push(new Num(5));
+            testStack.Push(new Num(0));
+            testStack.Push(new DivOP());
+
+            //Act
+            Action test = () => { testStack.Pop().eval(testStack); };
+
+            //Assert
+            test.Should().Throw<DivideByZeroException>();
         }
 
         [Fact]

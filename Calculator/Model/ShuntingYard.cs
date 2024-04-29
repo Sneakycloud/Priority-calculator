@@ -40,7 +40,7 @@ namespace Calculator.Model
                     //Check if the expression was invalid
                     if (operatorStack.Count == 0)
                     {
-                        throw new Exception();
+                        throw new InvalidOperationException();
                     }
 
                     operatorStack.Pop(); //Gets rid of the "("

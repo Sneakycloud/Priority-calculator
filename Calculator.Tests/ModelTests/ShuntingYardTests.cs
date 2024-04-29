@@ -56,5 +56,26 @@ namespace CalculatorTests.ModelTests
             RPNstack.Should().Equal(expectedStack);
 
         }
+
+        //Test that is supposed to fail, purposefully misses the ( parantesis
+        [Fact]
+        public void shuntingYard_ToRPN_returnsInvalidOperationsException()
+        {
+            //Arrange, 2/1+5)
+            Queue<Token> tokenQueue = new Queue<Token>();
+            tokenQueue.Enqueue(new Num(2));
+            tokenQueue.Enqueue(new DivOP());
+            tokenQueue.Enqueue(new Num(1));
+            tokenQueue.Enqueue(new SubOP());
+            tokenQueue.Enqueue(new Num(5));
+            tokenQueue.Enqueue(new RightParentheses());
+
+            //Act
+
+            Action test = () => { ShuntingYard.ToRPN(tokenQueue); };
+
+            //Assert
+            test.Should().Throw<InvalidOperationException>();
+        }
     }
 }
