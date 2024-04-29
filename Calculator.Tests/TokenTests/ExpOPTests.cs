@@ -28,7 +28,7 @@ namespace CalculatorTests.TokenTests
         }
 
         [Fact]
-        public void ExpOP_ToString_ReturnsStringDivisor()
+        public void ExpOP_ToString_ReturnsString()
         {
             //Arrange
             ExpOP Test = new ExpOP();

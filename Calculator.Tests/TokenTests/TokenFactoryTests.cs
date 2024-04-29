@@ -19,6 +19,7 @@ namespace CalculatorTests.TokenTests
         [InlineData("/", typeof(DivOP))]
         [InlineData("%", typeof(ModuloOP))]
         [InlineData("^", typeof(ExpOP))]
+        [InlineData("!", typeof(FactorialOP))]
         [InlineData("(", typeof(LeftParentheses))]
         [InlineData(")", typeof(RightParentheses))]
 

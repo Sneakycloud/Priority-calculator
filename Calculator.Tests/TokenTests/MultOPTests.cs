@@ -28,7 +28,7 @@ namespace CalculatorTests.TokenTests
         }
 
         [Fact]
-        public void MultOP_ToString_ReturnsStringDivisor()
+        public void MultOP_ToString_ReturnsString()
         {
             //Arrange
             MultOP Test = new MultOP();
