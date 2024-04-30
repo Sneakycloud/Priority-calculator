@@ -44,6 +44,10 @@ namespace Calculator.Tokens
             {
                 return new FactorialOP();
             }
+            else if (stringPart == "u03C0")
+            {
+                return new Pi();
+            }
             else if (stringPart == "(")
             {
                 return new LeftParentheses();
