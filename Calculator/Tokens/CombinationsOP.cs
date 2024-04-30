@@ -9,7 +9,7 @@ namespace Calculator.Tokens
 {
     public class CombinationsOP : Token
     {
-        public CombinationsOP() : base(3, true) { }
+        public CombinationsOP() : base(3, true, false) { }
 
         public override double eval(Stack<Token> inputStack)
         {

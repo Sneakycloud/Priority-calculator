@@ -10,7 +10,7 @@ namespace Calculator.Tokens
     {
         public double Value { get; set; }
 
-        public Num(double input) : base(-1,true) {
+        public Num(double input) : base(-1,true, false) {
             this.Value = input;
         }
 

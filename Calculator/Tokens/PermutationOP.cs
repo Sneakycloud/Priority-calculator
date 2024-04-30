@@ -10,7 +10,7 @@ namespace Calculator.Tokens
 {
     public class PermutationOP : Token
     {
-        public PermutationOP() : base(3, true) { }
+        public PermutationOP() : base(3, true, false) { }
 
         public override double eval(Stack<Token> inputStack)
         {

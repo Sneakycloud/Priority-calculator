@@ -26,12 +26,12 @@ namespace Calculator.Model
 
             //Define a pattern of operators
 
-            string pattern = @"([\+\-\*\/\(\)\^\%\!\u0050\u0063\u0070\u0043\u03C0])";
+            string pattern = @"([\+\-\*\/\(\)\^\%\!\u0050\u0063\u0070\u0043\u03C0])|(Max)|(max)|\s+";
 
 
 
             //split the inputExpression string using the pattern
-            string[] input = Regex.Split(inputExpression, pattern);
+            string[] input = Regex.Split(inputExpression.Replace(',',' '), pattern);
 
 
             // enqueue the tokens into the parsedResult queue, skip empty strings

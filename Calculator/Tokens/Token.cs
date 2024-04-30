@@ -8,17 +8,19 @@ namespace Calculator.Tokens
 {
     public abstract class Token
     {
-        public Token(int inputPriority, bool assosiative)
+        public Token(int inputPriority, bool assosiative, bool isFunctionInput)
         {
             priority = inputPriority;
             leftAssosiative = assosiative;
+            isFunction = isFunctionInput;
         }
 
         public readonly int priority;
         public readonly bool leftAssosiative;
+        public readonly bool isFunction;
         //Returns the value contained or the calculates it's value based on the operator.
         public abstract double eval(Stack<Token> inputStack);
-        public abstract string ToString();
+        public abstract override string ToString();
         
         protected static (double,double) getValues(Stack<Token> inputStack)
         {
