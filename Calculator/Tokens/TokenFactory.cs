@@ -44,7 +44,7 @@ namespace Calculator.Tokens
             {
                 return new FactorialOP();
             }
-            else if (stringPart == "u03C0")
+            else if ("u" + ((int)stringPart[0]).ToString("X4") == "u03C0")
             {
                 return new Pi();
             }
