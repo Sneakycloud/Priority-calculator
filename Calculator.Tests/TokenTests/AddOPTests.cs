@@ -30,7 +30,7 @@ namespace CalculatorTests.TokenTests
         }
 
         [Fact]
-        public void AddOP_ToString_ReturnStringAdding()
+        public void AddOP_ToString_ReturnString()
         {
             //Arrange
             AddOP Test = new AddOP();

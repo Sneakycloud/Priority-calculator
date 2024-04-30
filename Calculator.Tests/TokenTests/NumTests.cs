@@ -27,7 +27,7 @@ namespace CalculatorTests.TokenTests
         [Theory]
         [InlineData(2,2)]
         [InlineData(1,1)]
-        public void MultOP_ToString_ReturnsStringDivisor(double a,double expected)
+        public void MultOP_ToString_ReturnsString(double a,double expected)
         {
             //Arrange
             Num Test = new Num(a);

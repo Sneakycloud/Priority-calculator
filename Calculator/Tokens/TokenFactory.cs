@@ -40,6 +40,10 @@ namespace Calculator.Tokens
             {
                 return new ExpOP();
             }
+            else if (stringPart == "!")
+            {
+                return new FactorialOP();
+            }
             else if (stringPart == "(")
             {
                 return new LeftParentheses();

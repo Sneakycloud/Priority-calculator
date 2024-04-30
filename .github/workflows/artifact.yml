@@ -1,0 +1,48 @@
+name: "create executable"
+
+on:
+  push:
+    tags:
+      - "v*"
+      
+jobs:
+  deploy:
+      runs-on: windows-latest
+      
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+  
+      # Install the .NET Core workload
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Install dependencies
+        run: dotnet restore Calculator/Calculator.sln
+
+      - name: build project
+        run: dotnet build Calculator/Calculator.sln -c Release --no-restore
+
+      - name: create exe
+        run: dotnet publish Calculator/Calculator.sln -c Release --self-contained -r win-x64 -p:PublishingSingleFile=true --no-build
+
+      - name: create release
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+
+      - name: upload to release
+        uses: csexton/release-asset-action@v3
+        with: 
+           github-token: ${{ secrets.GITHUB_TOKEN }}
+           pattern: Calculator/bin/Release/net6.0-windows/win-x64/publish/*.exe
+           release-url: ${{ steps.create_release.outputs.upload_url }}
+      

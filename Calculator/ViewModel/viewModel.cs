@@ -19,8 +19,6 @@ namespace Calculator.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public string InputExpression { get; set; } = string.Empty;
-        public string OutputExpression { get; set; } = "Success";
 
         //Data binding for GUI
         public string _expression = string.Empty;

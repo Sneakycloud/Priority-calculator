@@ -28,7 +28,7 @@ namespace CalculatorTests.TokenTests
         }
 
         [Fact]
-        public void AddOP_ToString_ReturnStringSubtracting()
+        public void AddOP_ToString_ReturnString()
         {
             //Arrange
             SubOP Test = new SubOP();
