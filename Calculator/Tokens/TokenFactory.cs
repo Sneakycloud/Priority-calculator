@@ -44,7 +44,15 @@ namespace Calculator.Tokens
             {
                 return new FactorialOP();
             }
-            else if ("u" + ((int)stringPart[0]).ToString("X4") == "u03C0")
+            else if ("u" + ((int)stringPart[0]).ToString("X4") == "u0050" || "u" + ((int)stringPart[0]).ToString("X4") == "u0070") //P or p
+            {
+                return new PermutationOP();
+            }
+            else if ("u" + ((int)stringPart[0]).ToString("X4") == "u0043" || "u" + ((int)stringPart[0]).ToString("X4") == "u0063") //C or c
+            {
+                return new CombinationsOP();
+            }
+            else if ("u" + ((int)stringPart[0]).ToString("X4") == "u03C0") //Pi
             {
                 return new Pi();
             }
