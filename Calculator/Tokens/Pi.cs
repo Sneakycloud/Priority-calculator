@@ -17,7 +17,7 @@ namespace Calculator.Tokens
 
         public override string ToString()
         {
-            return "u03C0";
+            return "π";
         }
     }
 }

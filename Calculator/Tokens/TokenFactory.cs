@@ -56,7 +56,7 @@ namespace Calculator.Tokens
             {
                 return new MaxFunc();
             }
-            else if ("u" + ((int)stringPart[0]).ToString("X4") == "u03C0") //Pi
+            else if (stringPart == "π") //Pi
             {
                 return new Pi();
             }

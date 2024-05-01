@@ -26,7 +26,7 @@ namespace Calculator.Model
 
             //Define a pattern of operators
 
-            string pattern = @"([\+\-\*\/\(\)\^\%\!CcPp\u03C0])|(Max)|(max)|\s+";
+            string pattern = @"([\+\-\*\/\(\)\^\%\!CcPpπ])|(Max)|(max)|\s+";
 
 
 
