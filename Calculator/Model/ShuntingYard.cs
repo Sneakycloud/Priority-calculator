@@ -21,6 +21,10 @@ namespace Calculator.Model
                 {
                     RPNstack.Push(tokenQueue.Dequeue());
                 }
+                else if (tokenQueue.Peek().isFunction == true)
+                {
+                    operatorStack.Push(tokenQueue.Dequeue());
+                }
                 else if (operatorStack.Count == 0) //if operator stack is empty, then put the operator in
                 {
                     operatorStack.Push(tokenQueue.Dequeue());
@@ -45,6 +49,12 @@ namespace Calculator.Model
 
                     operatorStack.Pop(); //Gets rid of the "("
                     tokenQueue.Dequeue();
+
+                    //Pops a function if it is on the top of the operator stack
+                    if(operatorStack.Count > 0 && operatorStack.Peek().isFunction == true)
+                    {
+                        RPNstack.Push(operatorStack.Pop());
+                    }
 
                     
                 }

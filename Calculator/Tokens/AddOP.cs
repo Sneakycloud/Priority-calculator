@@ -14,7 +14,7 @@ namespace Calculator.Tokens
     {
 
         // the constructor with priority order 0
-        public AddOP() : base(0,true) { }
+        public AddOP() : base(0,true, false) { }
 
 
         // method to evaluate the add operation

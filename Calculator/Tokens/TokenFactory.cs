@@ -44,9 +44,25 @@ namespace Calculator.Tokens
             {
                 return new FactorialOP();
             }
-            else if ("u" + ((int)stringPart[0]).ToString("X4") == "u03C0")
+            else if ( stringPart == "p")
+            {
+                return new PermutationOP();
+            }
+            else if (stringPart == "c")
+            {
+                return new CombinationsOP();
+            }
+            else if(stringPart == "max")
+            {
+                return new MaxFunc();
+            }
+            else if (stringPart == "π") //Pi
             {
                 return new Pi();
+            }
+            else if (stringPart == "e")
+            {
+                return new e();
             }
             else if (stringPart == "(")
             {

@@ -9,7 +9,7 @@ namespace Calculator.Tokens
     public class DivOP : Token
     {
         // the constructor DivOP with priority order 1
-        public DivOP() : base(1,true) { }
+        public DivOP() : base(1,true, false) { }
 
         public override double eval(Stack<Token> inputStack)
         {

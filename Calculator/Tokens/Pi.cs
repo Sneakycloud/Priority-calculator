@@ -8,7 +8,7 @@ namespace Calculator.Tokens
 {
     public class Pi : Token
     {
-        public Pi() : base(-1, true) { }
+        public Pi() : base(-1, true, false) { }
 
         public override double eval(Stack<Token> inputStack)
         {
@@ -17,7 +17,7 @@ namespace Calculator.Tokens
 
         public override string ToString()
         {
-            return "u03C0";
+            return "π";
         }
     }
 }
