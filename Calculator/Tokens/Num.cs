@@ -8,15 +8,15 @@ namespace Calculator.Tokens
 {
     public class Num : Token
     {
-        public double Value { get; set; }
+        private readonly double Value;
 
         public Num(double input) : base(-1,true, false) {
-            this.Value = input;
+            Value = input;
         }
 
         public override double eval(Stack<Token> inputStack)
         {
-            return this.Value;
+            return Value;
         }
 
         public override string ToString()
@@ -29,9 +29,14 @@ namespace Calculator.Tokens
         {
             if (obj == null || obj.GetType() != GetType()) return false;
 
-            if ((obj as Num).Value != Value) return false;
+            if ((obj as Num) == null || (obj as Num)!.Value != Value) return false;
 
             return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return Value.GetHashCode();
         }
     }
 }

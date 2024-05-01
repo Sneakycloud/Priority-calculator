@@ -55,5 +55,10 @@ namespace Calculator.Tokens
             return true;
         }
 
+        public override int GetHashCode()
+        {
+            return this.ToString().GetHashCode();
+        }
+
     }
 }
