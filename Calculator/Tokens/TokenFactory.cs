@@ -60,6 +60,10 @@ namespace Calculator.Tokens
             {
                 return new Pi();
             }
+            else if (stringPart == "e")
+            {
+                return new e();
+            }
             else if (stringPart == "(")
             {
                 return new LeftParentheses();
