@@ -26,12 +26,12 @@ namespace Calculator.Model
 
             //Define a pattern of operators
 
-            string pattern = @"([\+\-\*\/\(\)\^\%\!CcPpπ])|(Max)|(max)|\s+";
+            string pattern = @"([\+\-\*\/\(\)\^\%\!cpπ])|(max)|\s+";
 
 
 
             //split the inputExpression string using the pattern
-            string[] input = Regex.Split(inputExpression.Replace(',',' '), pattern);
+            string[] input = Regex.Split(inputExpression.Replace(',',' ').ToLower(), pattern);
 
 
             // enqueue the tokens into the parsedResult queue, skip empty strings

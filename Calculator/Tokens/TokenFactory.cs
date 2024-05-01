@@ -44,15 +44,15 @@ namespace Calculator.Tokens
             {
                 return new FactorialOP();
             }
-            else if (stringPart == "P" || stringPart == "p") //P or p
+            else if ( stringPart == "p")
             {
                 return new PermutationOP();
             }
-            else if (stringPart == "C" || stringPart == "c") //C or c
+            else if (stringPart == "c")
             {
                 return new CombinationsOP();
             }
-            else if(stringPart.ToLower() == "max")
+            else if(stringPart == "max")
             {
                 return new MaxFunc();
             }
