@@ -9,7 +9,7 @@ namespace Calculator.Tokens
 {
     public class FactorialOP : Token
     {
-        public FactorialOP() : base(3, true) { }
+        public FactorialOP() : base(3, true, false) { }
 
         public override double eval(Stack<Token> inputStack)
         {

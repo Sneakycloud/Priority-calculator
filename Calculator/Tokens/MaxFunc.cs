@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace Calculator.Tokens
 {
-    public class ExpOP : Token
+    public class MaxFunc : Token
     {
-        public ExpOP() : base(2, false, false) { }
+        public MaxFunc() : base(0,true,true) { }
 
         public override double eval(Stack<Token> inputStack)
         {
             (double, double) values = getValues(inputStack);
-            return Math.Pow(values.Item2, values.Item1);
+            return values.Item1 > values.Item2 ? values.Item1 : values.Item2;
         }
-
         public override string ToString()
         {
-            return "^";
+            return "Max";
         }
     }
 }

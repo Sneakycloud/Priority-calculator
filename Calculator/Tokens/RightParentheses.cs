@@ -8,7 +8,7 @@ namespace Calculator.Tokens
 {
     public class RightParentheses : Token
     {
-        public RightParentheses() : base(10, true) { }
+        public RightParentheses() : base(10, true, false) { }
 
         //This is only called if something has gone wrong, i.e the expression is not valid
         public override double eval(Stack<Token> inputStack)

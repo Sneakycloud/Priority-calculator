@@ -12,7 +12,7 @@ namespace Calculator.Model
         // create a static method that takes a string "inputExpression" from viewModel and converts it to a string queue.
         // Example:
         // Input: ”2+10”
-        // Parser.parse(”2+10”) = [”2”,”+”,”10”] = parsedResult     //meeeeep
+        // Parser.parse(”2+10”) = [”2”,”+”,”10”] = parsedResult    
 
 
 
@@ -26,12 +26,12 @@ namespace Calculator.Model
 
             //Define a pattern of operators
 
-            string pattern = @"([\+\-\*\/\(\)\^\%\!])";
+            string pattern = @"([\+\-\*\/\(\)\^\%\!cpπe])|(max)|\s+";
 
 
 
             //split the inputExpression string using the pattern
-            string[] input = Regex.Split(inputExpression, pattern);
+            string[] input = Regex.Split(inputExpression.Replace(',',' ').ToLower(), pattern);
 
 
             // enqueue the tokens into the parsedResult queue, skip empty strings
