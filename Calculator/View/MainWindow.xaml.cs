@@ -69,5 +69,37 @@ namespace Calculator.View
             _vm.Expression += btn.Content;
         }
 
+        private void tog_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if ((string)btn.Content == "1st")
+            {
+                btn.Content = "2nd";
+                btn_op1.Content = "!";
+                btn_op2.Content = "e";
+                btn_op3.Content = "π";
+                
+                btn_op5.Content = "nCr";
+                btn_op5.FontSize = 35;
+                btn_op6.Content = "nPr";
+                btn_op6.FontSize = 35;
+                btn_op7.Content = "Max";
+                btn_op7.FontSize = 35;
+
+            } else if ((string)btn.Content == "2nd")
+            {
+                btn.Content = "1st";
+                btn_op1.Content = "+";
+                btn_op2.Content = "-";
+                btn_op3.Content = "^";
+                btn_op5.Content = "*";
+
+                btn_op5.FontSize = 55;
+                btn_op6.Content = "/";
+                btn_op6.FontSize = 55;
+                btn_op7.Content = "%";
+                btn_op7.FontSize = 55;
+            }
+        }
     }
 }

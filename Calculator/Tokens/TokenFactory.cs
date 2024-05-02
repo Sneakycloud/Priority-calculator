@@ -44,11 +44,11 @@ namespace Calculator.Tokens
             {
                 return new FactorialOP();
             }
-            else if ( stringPart == "p")
+            else if ( stringPart == "p" || stringPart == "npr")
             {
                 return new PermutationOP();
             }
-            else if (stringPart == "c")
+            else if (stringPart == "c" || stringPart == "ncr")
             {
                 return new CombinationsOP();
             }
