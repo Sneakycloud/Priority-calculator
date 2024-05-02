@@ -72,7 +72,6 @@ namespace Calculator.View
         private void tog_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            tbx.Text = (string)btn.Content;
             if ((string)btn.Content == "1st")
             {
                 btn.Content = "2nd";
