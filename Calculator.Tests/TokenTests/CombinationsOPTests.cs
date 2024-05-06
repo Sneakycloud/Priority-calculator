@@ -63,6 +63,32 @@ namespace CalculatorTests.TokenTests
         }
 
         [Fact]
+        public void CombinationsOP_Eval_Returns1_WhenPicking0OutOfN()
+        {
+            Stack<Token> testStack = new Stack<Token>();
+            testStack.Push(new Num(5));
+            testStack.Push(new Num(0));
+            testStack.Push(new CombinationsOP());
+
+            double result = testStack.Pop().eval(testStack);
+
+            result.Should().Be(1);
+        }
+
+        [Fact]
+        public void CombinationsOP_Eval_Returns1_WhenPickingAllItemsOutOfN()
+        {
+            Stack<Token> testStack = new Stack<Token>();
+            testStack.Push(new Num(5));
+            testStack.Push(new Num(5));
+            testStack.Push(new CombinationsOP());
+
+            double result = testStack.Pop().eval(testStack);
+
+            result.Should().Be(1);
+        }
+
+        [Fact]
         public void CombinationsOP_ToString_ReturnString()
         {
             
