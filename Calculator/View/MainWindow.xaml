@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        DataContext="{StaticResource MainViewModel}"
         Title="MainWindow" Height="600" Width="500" Background="IndianRed">
     <Window.Resources>
         

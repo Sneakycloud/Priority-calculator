@@ -24,12 +24,12 @@ namespace Calculator.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private viewModel _vm;
+        private viewModel _vm = new viewModel();
 
         public MainWindow()
         {
             InitializeComponent();
-            _vm = (viewModel)this.DataContext;
+            this.DataContext = _vm;
         }
 
         public void num_Click(object sender, RoutedEventArgs e)
