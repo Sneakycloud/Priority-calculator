@@ -22,6 +22,20 @@ namespace CalculatorTests.TokenTests
         [InlineData("!", typeof(FactorialOP))]
         [InlineData("(", typeof(LeftParentheses))]
         [InlineData(")", typeof(RightParentheses))]
+        [InlineData("π", typeof(Pi))]
+        [InlineData("e", typeof(e))]
+        [InlineData("npr", typeof(PermutationOP))]
+        [InlineData("ncr", typeof(CombinationsOP))]
+        [InlineData("sin", typeof(SinFunc))]
+        [InlineData("cos", typeof(CosFunc))]
+        [InlineData("tan", typeof(TanFunc))]
+        [InlineData("arcsin", typeof(ArcSinFunc))]
+        [InlineData("arccos", typeof(ArcCosFunc))]
+        [InlineData("arctan", typeof(ArcTanFunc))]
+        [InlineData("max", typeof(MaxFunc))]
+        [InlineData("min", typeof(MinFunc))]
+        [InlineData("ln", typeof(LnFunc))]
+        [InlineData("log", typeof(LogFunc))]
 
         public void testTokenFactory_returnsExpectedType(string testInput, Type expectedType)
         {

@@ -26,12 +26,15 @@ namespace Calculator.Model
 
             //Define a pattern of operators
 
-            string pattern = @"([\+\-\*\/\(\)\^\%\!cpπe])|(max)|\s+|(ncr)|(npr)";
+            string Operatorpattern = @"([\+\-\*\/\(\)\^\%\!πe])";
+            string trigFunctionPattern = @"|(sin)|(cos)|(tan)|(arcsin)|(arccos)|(arctan)";
+            string functionPattern = @"|(max)|(min)|\s+|(ncr)|(npr)|(log)|(ln)";
+            
 
 
 
             //split the inputExpression string using the pattern
-            string[] input = Regex.Split(inputExpression.Replace(',',' ').ToLower(), pattern);
+            string[] input = Regex.Split(inputExpression.Replace(',',' ').ToLower(), Operatorpattern + trigFunctionPattern + functionPattern);
 
 
             // enqueue the tokens into the parsedResult queue, skip empty strings
