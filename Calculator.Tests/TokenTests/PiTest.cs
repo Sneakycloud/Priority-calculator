@@ -24,5 +24,13 @@ namespace CalculatorTests.TokenTests
             Assert.Equal(System.Math.PI, result);
         }
 
+        [Fact]
+        public void PermutationOP_ToString_ReturnString()
+        {
+            Pi Test = new Pi();
+            string result = Test.ToString();
+            result.Should().Be("π");
+        }
+
     }
 }
