@@ -32,7 +32,7 @@ namespace Calculator.View
             _vm = (viewModel)this.DataContext;
         }
 
-        private void num_Click(object sender, RoutedEventArgs e)
+        public void num_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
 
@@ -129,6 +129,7 @@ namespace Calculator.View
                 btn_op8.Content = ")";
                 btn_op8.FontSize = 55;
             }
+
         }
     }
 }
