@@ -33,10 +33,5 @@ namespace Calculator.Tokens
 
             return true;
         }
-
-        public override int GetHashCode()
-        {
-            return Value.GetHashCode();
-        }
     }
 }
