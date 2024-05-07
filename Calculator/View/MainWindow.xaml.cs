@@ -78,27 +78,56 @@ namespace Calculator.View
                 btn_op1.Content = "!";
                 btn_op2.Content = "e";
                 btn_op3.Content = "π";
-                
+                btn_op4.Content = "%";
                 btn_op5.Content = "nCr";
                 btn_op5.FontSize = 35;
                 btn_op6.Content = "nPr";
                 btn_op6.FontSize = 35;
                 btn_op7.Content = "Max";
                 btn_op7.FontSize = 35;
+                btn_op8.Content = "Min";
+                btn_op8.FontSize = 35;
 
-            } else if ((string)btn.Content == "2nd")
+            }
+            else if ((string)btn.Content == "2nd")
+            {
+                btn.Content = "3rd";
+                btn_op1.Content = "sin";
+                btn_op1.FontSize = 35;
+                btn_op2.Content = "cos";
+                btn_op2.FontSize = 35;
+                btn_op3.Content = "tan";
+                btn_op3.FontSize = 35;
+                btn_op4.Content = "log";
+                btn_op4.FontSize = 35;
+                btn_op5.Content = "arcsin";
+                btn_op5.FontSize = 23;
+                btn_op6.Content = "arccos";
+                btn_op6.FontSize = 23;
+                btn_op7.Content = "arctan";
+                btn_op7.FontSize = 23;
+                btn_op8.Content= "ln";
+                btn_op8.FontSize = 35;
+            }
+            else if ((string)btn.Content == "3rd")
             {
                 btn.Content = "1st";
                 btn_op1.Content = "+";
+                btn_op1.FontSize = 55;
                 btn_op2.Content = "-";
+                btn_op2.FontSize = 55;
                 btn_op3.Content = "^";
+                btn_op3.FontSize = 55;
+                btn_op4.Content = "(";
+                btn_op4.FontSize = 55;
                 btn_op5.Content = "*";
-
                 btn_op5.FontSize = 55;
                 btn_op6.Content = "/";
                 btn_op6.FontSize = 55;
-                btn_op7.Content = "%";
+                btn_op7.Content = "√";
                 btn_op7.FontSize = 55;
+                btn_op8.Content = ")";
+                btn_op8.FontSize = 55;
             }
         }
     }
