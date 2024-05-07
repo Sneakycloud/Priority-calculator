@@ -24,20 +24,35 @@ namespace CalculatorTests.ViewTests
 {
     public class MainWindowTests
     {
+        viewModel vm;
+
         [Fact]
         public void TestNumericButton_Click()
         {
-            // Arrange
-            var mainWindow = new MainWindow();
-            var viewModel = (viewModel)mainWindow.DataContext;
+            Thread testThread = new Thread(() =>
+            {
+                // Arrange
+                var mainWindow = new MainWindow();
+                vm = (viewModel)mainWindow.DataContext;
 
-            Button numericButton1 = mainWindow.FindName("btn1") as Button;
+                Button numericButton1 = mainWindow.FindName("btn1") as Button;
 
-            // Act
-            mainWindow.num_Click(numericButton1, new RoutedEventArgs(Button.ClickEvent));
+                // Act
+                mainWindow.num_Click(numericButton1, new RoutedEventArgs(Button.ClickEvent));
+
+                
+            });
+
+            testThread.SetApartmentState(ApartmentState.STA);
+
+            testThread.Start();
+
+            testThread.Join();
 
             // Assert
-            viewModel.Expression.Should().Be("1"); // Check if the expression in the view model is updated correctly
+            vm.Expression.Should().Be("1"); // Check if the expression in the view model is updated correctly
+
+           
         }
     }
 }
