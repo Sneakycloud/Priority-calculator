@@ -41,5 +41,29 @@ namespace CalculatorTests.TokenTests
             //Assert
             result.Should().Be("+");
         }
+
+
+
+
+        // Property Test
+        // Tests if the Add operation is commutative, 2+3 should be the same as 3+2
+        [Theory]
+        [InlineData(2, 3)]
+        [InlineData(8, 4)]
+        public void CheckIf_AddOP_IsCommutative(double x, double y)
+        {
+            var addOP = new AddOP();    
+            var inputStack = new Stack<Token>();
+
+            inputStack.Push(new Num(x));
+            inputStack.Push(new Num(y));
+
+            var result_1 = addOP.eval(new Stack<Token>(inputStack));
+            var result_2 = addOP.eval(new Stack<Token>(inputStack.Reverse()));
+
+            //the result should be the same when the inputStack is reversed and when it's normal.
+            result_1.Should().Be(result_2);
+        }
+
     }
 }
