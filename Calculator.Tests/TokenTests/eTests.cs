@@ -23,5 +23,13 @@ namespace CalculatorTests.TokenTests
             Assert.Equal(System.Math.E, result);
         }
 
+        [Fact]
+        public void PermutationOP_ToString_ReturnString()
+        {
+            e Test = new e();
+            string result = Test.ToString();
+            result.Should().Be("e");
+        }
+
     }
 }
