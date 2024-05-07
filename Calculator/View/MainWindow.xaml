@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        DataContext="{StaticResource MainViewModel}"
         Title="MainWindow" Height="600" Width="500" Background="IndianRed">
     <Window.Resources>
         
@@ -76,42 +75,49 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            
         </Grid.RowDefinitions>
 
-        <TextBox Name="tbx" Grid.ColumnSpan="5" Margin="5" FontSize="30" FontFamily="Rod" TextAlignment="Right" VerticalContentAlignment="Center" BorderBrush="{StaticResource Button.Static.Border}" BorderThickness="3" Text="{Binding Path=Expression, Mode=TwoWay}"/>
+        <Menu Grid.ColumnSpan="5" >
+            <MenuItem Header="Mode" Height="30" FontSize="20">
+                <MenuItem Header="Regular mode" IsCheckable="True" IsChecked="True"/>
+                <MenuItem Header="RPN mode" IsCheckable="False" IsChecked="False"/>
+            </MenuItem>
+        </Menu>
+
+        <TextBox Name="tbx" Grid.Row="1" Grid.ColumnSpan="5" Margin="5" FontSize="30" FontFamily="Rod" TextAlignment="Right" VerticalContentAlignment="Center" BorderBrush="{StaticResource Button.Static.Border}" BorderThickness="3" Text="{Binding Path=Expression, Mode=TwoWay}"/>
         
-        <Button Name="btn1" Content="1" Grid.Row="4" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn2" Content="2" Grid.Row="4" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn3" Content="3" Grid.Row="4" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn4" Content="4" Grid.Row="3" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn5" Content="5" Grid.Row="3" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn6" Content="6" Grid.Row="3" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn7" Content="7" Grid.Row="2" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn8" Content="8" Grid.Row="2" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn9" Content="9" Grid.Row="2" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn0" Content="0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn_com" Content="," Grid.Row="5" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn1" Content="1" Grid.Row="5" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn2" Content="2" Grid.Row="5" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn3" Content="3" Grid.Row="5" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn4" Content="4" Grid.Row="4" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn5" Content="5" Grid.Row="4" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn6" Content="6" Grid.Row="4" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn7" Content="7" Grid.Row="3" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn8" Content="8" Grid.Row="3" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn9" Content="9" Grid.Row="3" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn0" Content="0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn_com" Content="," Grid.Row="6" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
 
-        <Button Name="btn_op1" Content="+" Grid.Row="2" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
-        <Button Name="btn_op2" Content="-" Grid.Row="3" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
-        <Button Name="btn_op3" Content="^" Grid.Row="4" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
-        <Button Name="btn_op4" Content="(" Grid.Row="5" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
-        <Button Name="btn_op5" Content="*" Grid.Row="2" Grid.Column="4" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
-        <Button Name="btn_op6" Content="/" Grid.Row="3" Grid.Column="4" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
-        <Button Name="btn_op7" Content="√" Grid.Row="4" Grid.Column="4" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
-        <Button Name="btn_op8" Content=")" Grid.Row="5" Grid.Column="4" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
+        <Button Name="btn_op1" Content="+" Grid.Row="3" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
+        <Button Name="btn_op2" Content="-" Grid.Row="4" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
+        <Button Name="btn_op3" Content="^" Grid.Row="5" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
+        <Button Name="btn_op4" Content="(" Grid.Row="6" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
+        <Button Name="btn_op5" Content="*" Grid.Row="3" Grid.Column="4" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
+        <Button Name="btn_op6" Content="/" Grid.Row="4" Grid.Column="4" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
+        <Button Name="btn_op7" Content="√" Grid.Row="5" Grid.Column="4" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
+        <Button Name="btn_op8" Content=")" Grid.Row="6" Grid.Column="4" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
 
-        <Button Name="btn_equ" Content="=" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="55" FontWeight="Bold" Click="equ_Click" Margin="5"/>
-        <Button Name="btnC"    Content="C" Grid.Row="1" Grid.Column="0" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="55" FontWeight="Bold" Click="C_Click" Margin="5"/>
-        <Button Name="btn_del" Content="DEL" Grid.Row="1" Grid.Column="1" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="35" FontWeight="Bold" Click="del_Click" Margin="5"/>
-        <Button Name="btn_tog" Content="1st" Grid.Row="1" Grid.Column="2" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="35" FontWeight="Bold" Click="tog_Click" Margin="5" />
+        <Button Name="btn_equ" Content="=" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="55" FontWeight="Bold" Click="equ_Click" Margin="5"/>
+        <Button Name="btnC"    Content="C" Grid.Row="2" Grid.Column="0" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="55" FontWeight="Bold" Click="C_Click" Margin="5"/>
+        <Button Name="btn_del" Content="DEL" Grid.Row="2" Grid.Column="1" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="35" FontWeight="Bold" Click="del_Click" Margin="5"/>
+        <Button Name="btn_tog" Content="1st" Grid.Row="2" Grid.Column="2" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="35" FontWeight="Bold" Click="tog_Click" Margin="5" />
 
     </Grid>
 

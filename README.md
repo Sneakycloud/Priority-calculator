@@ -73,7 +73,7 @@ Github handle - Firstname Lastname
 * Sneakycloud - Eddie Olofsgård
 * sodqv - Sara Odqvist
 * ebbabrage - Ebba Brage
-* sandzan - Sandra Karlssån
+* sandzan - Sandra Carlsson
 
 
 
