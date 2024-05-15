@@ -37,6 +37,7 @@
   <ItemGroup>
     <Folder Include="CoverageReport\" />
     <Folder Include="ViewTests\" />
+    <Folder Include="ViewModelTests\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -24,15 +24,15 @@ namespace Calculator.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private viewModel _vm;
+        private viewModel _vm = new viewModel();
 
         public MainWindow()
         {
             InitializeComponent();
-            _vm = (viewModel)this.DataContext;
+            this.DataContext = _vm;
         }
 
-        private void num_Click(object sender, RoutedEventArgs e)
+        public void num_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
 
@@ -129,6 +129,7 @@ namespace Calculator.View
                 btn_op8.Content = ")";
                 btn_op8.FontSize = 55;
             }
+
         }
     }
 }
