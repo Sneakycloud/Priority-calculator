@@ -31,7 +31,9 @@ namespace Calculator.ViewModel
         //Uses input expression as input and changes output expression, works as a relay
         public void Calculator()
         {
-            Expression = $"{EvaluateExpression(Expression)}";
+            double Result = EvaluateExpression(Expression);
+            double rounded_result = Math.Round(Result,7);
+            Expression = $"{rounded_result.ToString()}";
         }
 
         private double EvaluateExpression(string input)
@@ -50,6 +52,37 @@ namespace Calculator.ViewModel
 
             //Check if the expression was completely evaluated
             if (RPNstack.Count == 1 ) { throw new Exception(); }
+
+            return result;
+        }
+
+        public void RPN_Calculator()
+        {
+            double Result = RPN_EvalutateExpression(Expression);
+            double rounded_result = Math.Round(Result, 7);
+            Expression = $"{rounded_result.ToString()}";
+        }
+
+        private double RPN_EvalutateExpression(string input)
+        {
+            //Splits
+            string[] parsed = input.Split(' ');
+
+            //Makes it into a token queue
+            Stack<Token> RPNstack = new Stack<Token>();
+            foreach (string s in parsed)
+            {
+                if (!string.IsNullOrEmpty(s))
+                {
+                    RPNstack.Push(TokenFactory.createToken(s));
+                }
+            }
+
+            // Starts a pop on th RPNstack which results in a chain reaction that returns the correct double value of the input
+            double result = RPNstack.Pop().eval(RPNstack);
+
+            //Check if the expression was completely evaluated
+            if (RPNstack.Count == 1) { throw new Exception(); }
 
             return result;
         }
