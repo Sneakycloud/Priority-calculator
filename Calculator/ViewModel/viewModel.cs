@@ -36,7 +36,7 @@ namespace Calculator.ViewModel
             Expression = $"{rounded_result.ToString()}";
         }
 
-        private double EvaluateExpression(string input)
+        public double EvaluateExpression(string input)
         {
             // split the input expression into token elements and put it in a string queue
             Queue<string> parsedResult = Parser.ParseExpression(input);
@@ -63,10 +63,10 @@ namespace Calculator.ViewModel
             Expression = $"{rounded_result.ToString()}";
         }
 
-        private double RPN_EvalutateExpression(string input)
+        public double RPN_EvalutateExpression(string input)
         {
             //Splits
-            string[] parsed = input.Split(' ');
+            string[] parsed = input.ToLower().Split(' ');
 
             //Makes it into a token queue
             Stack<Token> RPNstack = new Stack<Token>();
