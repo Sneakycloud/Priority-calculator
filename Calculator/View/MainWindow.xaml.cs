@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Linq.Expressions;
+using System.Windows.Media.Animation;
 
 namespace Calculator.View
 {
@@ -40,6 +41,12 @@ namespace Calculator.View
             _vm.Expression += btn.Content;
         }
 
+        private void spc_Click(object sender, RoutedEventArgs e)
+        {
+            // add space
+            _vm.Expression += " ";
+        }
+
         private void C_Click(object sender, RoutedEventArgs e)
         {
             // delete all
@@ -55,10 +62,13 @@ namespace Calculator.View
 
         private void equ_Click(object sender, RoutedEventArgs e)
         {
-
             // calculate and output the result
             viewModel vm = (viewModel)this.DataContext;
-            vm.Calculator();
+            
+            if (rm.IsChecked == true)
+                vm.Calculator();
+            else
+                vm.RPN_Calculator();
 
         }
 
@@ -72,7 +82,7 @@ namespace Calculator.View
         private void tog_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            if ((string)btn.Content == "1st")
+            if ((string)btn.Content == "1st") // 1st state
             {
                 btn.Content = "2nd";
                 btn_op1.Content = "!";
@@ -89,7 +99,7 @@ namespace Calculator.View
                 btn_op8.FontSize = 35;
 
             }
-            else if ((string)btn.Content == "2nd")
+            else if ((string)btn.Content == "2nd") // 2nd state
             {
                 btn.Content = "3rd";
                 btn_op1.Content = "sin";
@@ -109,7 +119,7 @@ namespace Calculator.View
                 btn_op8.Content= "ln";
                 btn_op8.FontSize = 35;
             }
-            else if ((string)btn.Content == "3rd")
+            else if ((string)btn.Content == "3rd") // 3rd state
             {
                 btn.Content = "1st";
                 btn_op1.Content = "+";
@@ -131,5 +141,33 @@ namespace Calculator.View
             }
 
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem item = (MenuItem)sender;
+            if (item.Name == "rm") // Regular mode
+            {
+                item.IsChecked = true;
+                RPNm.IsChecked = false;
+
+                // Space button not enabled
+                btn_spc.IsEnabled = false;
+                btn_spc.Opacity = 0.85;
+
+                Title = "Calculator";
+            }
+            else // RPN mode
+            {
+                item.IsChecked = true;
+                rm.IsChecked = false;
+
+                // Space button is enabled
+                btn_spc.IsEnabled = true;
+                btn_spc.Opacity = 1;
+
+                Title = "RPN Calculator";
+            }
+        }
+
     }
 }
