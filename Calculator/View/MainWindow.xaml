@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="500" Background="IndianRed">
+        Title="Calculator" Height="600" Width="500" Background="IndianRed">
     <Window.Resources>
-        
+
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -63,6 +63,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        
     </Window.Resources>
 
     <Grid>
@@ -85,14 +87,14 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.ColumnSpan="5" >
-            <MenuItem Header="Mode" Height="30" FontSize="20">
-                <MenuItem Header="Regular mode" IsCheckable="True" IsChecked="True"/>
-                <MenuItem Header="RPN mode" IsCheckable="False" IsChecked="False"/>
+            <MenuItem Header="Mode" Height="30" FontSize="20" >
+                <MenuItem Name="rm" Header="Regular mode" IsCheckable="True" IsChecked="True" Click="MenuItem_Click" StaysOpenOnClick="True"/>
+                <MenuItem Name="RPNm" Header="RPN mode" IsCheckable="False" IsChecked="False" Click="MenuItem_Click" StaysOpenOnClick="True"/>
             </MenuItem>
         </Menu>
 
         <TextBox Name="tbx" Grid.Row="1" Grid.ColumnSpan="5" Margin="5" FontSize="30" FontFamily="Rod" TextAlignment="Right" VerticalContentAlignment="Center" BorderBrush="{StaticResource Button.Static.Border}" BorderThickness="3" Text="{Binding Path=Expression, Mode=TwoWay}"/>
-        
+
         <Button Name="btn1" Content="1" Grid.Row="5" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
         <Button Name="btn2" Content="2" Grid.Row="5" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
         <Button Name="btn3" Content="3" Grid.Row="5" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
@@ -102,7 +104,8 @@
         <Button Name="btn7" Content="7" Grid.Row="3" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
         <Button Name="btn8" Content="8" Grid.Row="3" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
         <Button Name="btn9" Content="9" Grid.Row="3" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
-        <Button Name="btn0" Content="0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn0" Content="0" Grid.Row="6" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn_spc" Content="␣" Grid.Row="6" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="spc_Click" Margin="5" IsEnabled="False" Opacity="0.85" />
         <Button Name="btn_com" Content="," Grid.Row="6" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
 
         <Button Name="btn_op1" Content="+" Grid.Row="3" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
@@ -120,5 +123,7 @@
         <Button Name="btn_tog" Content="1st" Grid.Row="2" Grid.Column="2" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="35" FontWeight="Bold" Click="tog_Click" Margin="5" />
 
     </Grid>
+    
+    
 
 </Window>
