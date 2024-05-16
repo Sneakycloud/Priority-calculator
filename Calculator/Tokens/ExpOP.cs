@@ -14,7 +14,7 @@ namespace Calculator.Tokens
         {
             (double, double) values = getValues(inputStack);
 
-            if(values.Item2 < 0 && Math.Abs(values.Item1 % 1) <= (Double.Epsilon * 100))
+            if(values.Item2 < 0 && !(Math.Abs(values.Item1 % 1) <= (Double.Epsilon * 100)))
             {
                 throw new Exception($"Cannot handle imaginary numbers, attempted to take {values.Item2} to the power of {values.Item1}");
             }
