@@ -13,7 +13,7 @@ namespace Calculator.Tokens
         //This is only called if something has gone wrong
         public override double eval(Stack<Token> inputStack)
         {
-            throw new Exception();
+            throw new Exception("Invalid expression, caused by (");
         }
         public override string ToString()
         {

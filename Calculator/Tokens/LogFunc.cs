@@ -13,11 +13,11 @@ namespace Calculator.Tokens
         public override double eval(Stack<Token> inputStack)
         {
             //Invalid expression
-            if (inputStack.Count == 0) { throw new InvalidOperationException(); }
+            if (inputStack.Count == 0) { throw new InvalidOperationException("Log lacks an operand"); }
 
             double value = inputStack.Pop().eval(inputStack);
 
-            if (value <= 0) { throw new InvalidOperationException(); }
+            if (value <= 0) { throw new InvalidOperationException($"Ln is undefined for negative values such as {value}"); }
 
             return Math.Log10(value);
         }

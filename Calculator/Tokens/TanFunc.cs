@@ -13,13 +13,13 @@ namespace Calculator.Tokens
         public override double eval(Stack<Token> inputStack)
         {
             //Invalid expression
-            if (inputStack.Count == 0) { throw new InvalidOperationException(); }
+            if (inputStack.Count == 0) { throw new InvalidOperationException("Tan lacks operand"); }
 
             double value = inputStack.Pop().eval(inputStack);
 
             if(value % Math.PI == Math.PI/2) //Throws exception when undefined, i.e when the angle is a multiple of 90 degrees
             {
-                throw new Exception();
+                throw new Exception("Tan is undefined for the angle Pi/2 and -Pi/2");
             }
 
             return Math.Tan(value);

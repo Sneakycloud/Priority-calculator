@@ -44,7 +44,7 @@ namespace Calculator.Model
                     //Check if the expression was invalid
                     if (operatorStack.Count == 0)
                     {
-                        throw new InvalidOperationException();
+                        throw new InvalidOperationException("Missing left paranthasis (") ;
                     }
 
                     operatorStack.Pop(); //Gets rid of the "("

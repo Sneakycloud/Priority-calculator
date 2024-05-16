@@ -12,6 +12,8 @@ namespace Calculator.Model
         //Round to closest number then does the factorial calculation !
         public static double Process(double value)
         {
+            if(value < 0) { throw new Exception($"Factorial is undefined for negative numbers, in this case {value}"); }
+
             int input = (int)Math.Round(value);
             int output = 1;
             

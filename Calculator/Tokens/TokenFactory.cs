@@ -110,7 +110,7 @@ namespace Calculator.Tokens
             }
             else
             {
-                throw new Exception();
+                throw new Exception($"Invalid input entered, {stringPart}");
             }
         }
     }

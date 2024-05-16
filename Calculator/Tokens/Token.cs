@@ -32,7 +32,7 @@ namespace Calculator.Tokens
             else
             {
                 //Handles an incorrect expression
-                throw new Exception();
+                throw new Exception("missing an operand");
             }
 
             if (inputStack.Count > 0)
@@ -42,7 +42,7 @@ namespace Calculator.Tokens
             else
             {
                 //Handles an incorrect expression
-                throw new Exception();
+                throw new Exception("missing an operand");
             }
 
             return (values.Item1,values.Item2);
