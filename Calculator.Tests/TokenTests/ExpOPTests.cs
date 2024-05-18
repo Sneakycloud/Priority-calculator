@@ -39,5 +39,23 @@ namespace CalculatorTests.TokenTests
             //Assert
             result.Should().Be("^");
         }
+
+        [Theory]
+        [InlineData(-1,1.4)]
+        [InlineData(-5,2.4)]
+        public void ExpOP_Eval_ReturnsException(double baseNum, double exponent)
+        {
+            //Arrange
+            Stack<Token> testStack = new Stack<Token>();
+            testStack.Push(new Num(baseNum));
+            testStack.Push(new Num(exponent));
+            testStack.Push(new ExpOP());
+
+            //Act
+            Action test = () => { testStack.Pop().eval(testStack); };
+
+            //Assert
+            test.Should().Throw<Exception>();
+        }
     }
 }
