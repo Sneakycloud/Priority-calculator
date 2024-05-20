@@ -17,9 +17,9 @@ namespace Calculator.Tokens
             //n = values.item2
             //k = values.item1
 
-            if (values.Item2 < values.Item1) { throw new Exception("More items are picked than available for nCr"); }   //If you attempt to pick more things than available
-            else if (values.Item2 < 0) { throw new Exception("The total items for nCr is negative"); }                  //If the total of items are negative
-            else if (values.Item1 < 0) { throw new Exception("The items picked for nCr is negative"); }                 //If the number of items being picked are negative
+            if (values.Item2 < values.Item1) { throw new Exception("To many items"); }   //If you attempt to pick more things than available
+            else if (values.Item2 < 0) { throw new Exception("Items total is negative"); }                  //If the total of items are negative
+            else if (values.Item1 < 0) { throw new Exception("Number of items is negative"); }                 //If the number of items being picked are negative
 
             return Factorial.Process(values.Item2) / (Factorial.Process(values.Item2 - values.Item1)*Factorial.Process(values.Item1));
         }

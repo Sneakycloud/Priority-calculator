@@ -17,7 +17,7 @@ namespace Calculator.Tokens
 
             double value = inputStack.Pop().eval(inputStack);
 
-            if(value == double.PositiveInfinity || value == double.NegativeInfinity) {  throw new InvalidOperationException("Tan is not defined for infinity as input"); }
+            if(value == double.PositiveInfinity || value == double.NegativeInfinity) {  throw new InvalidOperationException("Infinity is not defined"); }
 
             return Math.Atan(value);
         }

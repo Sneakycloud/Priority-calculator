@@ -14,7 +14,7 @@ namespace Calculator.Tokens
         public override double eval(Stack<Token> inputStack)
         {
             //Invalid expression
-            if (inputStack.Count == 0) { throw new InvalidOperationException("Factorial lacks an operand"); }
+            if (inputStack.Count == 0) { throw new InvalidOperationException("Lacks an operand"); }
 
             double value = inputStack.Pop().eval(inputStack);
             return Factorial.Process(value);
