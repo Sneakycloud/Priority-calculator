@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using Calculator.Tokens;
 
 namespace Calculator.Model
 {
@@ -25,27 +26,61 @@ namespace Calculator.Model
 
 
             //Define a pattern of operators
-
-            string Operatorpattern = @"([\+\-\*\/\(\)\^\%\!πe√])";
+            string infixOperators = @"([\+\-\*\/\^\%])|(ncr)|(npr)";
+            string singleOperators = @"|([\!√])"; //only use one side as input
+            string constants = @"|([πe])";
+            string paranthasis = @"|([\(\)])";
             string trigFunctionPattern = @"|(sin)|(cos)|(tan)|(arcsin)|(arccos)|(arctan)";
-            string functionPattern = @"|(max)|(min)|\s+|(ncr)|(npr)|(log)|(ln)";
-            
+            string functionPattern = @"|(max)|(min)|(log)|(ln)";
+            string pattern = infixOperators + singleOperators + constants + paranthasis + trigFunctionPattern + functionPattern + @"|\s+";
 
 
 
             //split the inputExpression string using the pattern
-            string[] input = Regex.Split(inputExpression.Replace(',',' ').ToLower(), Operatorpattern + trigFunctionPattern + functionPattern);
+            string[] input = Regex.Split(inputExpression.Replace(","," , ").ToLower(), pattern);
 
-
-            // enqueue the tokens into the parsedResult queue, skip empty strings
-            foreach (string token in input)
+            //Cleans whitespace and empty
+            List<string> cleanedInput = new List<string>();
+            foreach (string inputItem in input)
             {
-                if(!string.IsNullOrWhiteSpace(token))
+                if(!string.IsNullOrWhiteSpace(inputItem))
                 {
-                    parsedResult.Enqueue(token);
+                    cleanedInput.Add(inputItem);
                 }
             }
 
+            //Automatically multiplies constants and numbers when adjecent to a function
+            //i.e 3Max() = 3*Max() or 3π = 3*π
+            Queue<string> multiplied_input = new Queue<string>();
+            for(int i = 0; i < cleanedInput.Count() - 1; i++)
+            {
+                //Tests if the current string is a number or is a constant
+                bool current_string = (double.TryParse(cleanedInput[i], out _) | Regex.IsMatch(cleanedInput[i], constants.Remove(0,1)));
+                //Tests if the next string is a number, constant or a function
+                bool next_string = (double.TryParse(cleanedInput[i + 1], out _) | Regex.IsMatch(cleanedInput[i + 1], constants.Remove(0,1) + trigFunctionPattern + functionPattern));
+                //If both are true then assume there is an implicit multiplication
+                if (current_string && next_string)
+                {
+                    multiplied_input.Enqueue(cleanedInput[i]);
+                    multiplied_input.Enqueue("*");
+                }
+                else
+                {
+                    multiplied_input.Enqueue(cleanedInput[i]);
+                }
+
+            }
+            //Adds the last item
+            multiplied_input.Enqueue(cleanedInput[cleanedInput.Count()-1]);
+
+            //Remove ,
+            foreach(string item in multiplied_input)
+            {
+                if(item != ",")
+                {
+                    parsedResult.Enqueue(item);
+                }
+            }
 
             // return the parsedResult string queue
             return parsedResult;

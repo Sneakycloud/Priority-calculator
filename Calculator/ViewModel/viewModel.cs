@@ -59,7 +59,7 @@ namespace Calculator.ViewModel
             double result = RPNstack.Pop().eval(RPNstack);
 
             //Check if the expression was completely evaluated
-            if (RPNstack.Count == 1 ) { throw new Exception(); }
+            if (RPNstack.Count >= 1 ) { throw new Exception("Invalid Expression"); }
 
             return result;
         }
@@ -98,7 +98,7 @@ namespace Calculator.ViewModel
             double result = RPNstack.Pop().eval(RPNstack);
 
             //Check if the expression was completely evaluated
-            if (RPNstack.Count == 1) { throw new Exception(); }
+            if (RPNstack.Count >= 1) { throw new Exception("Invalid Expression"); }
 
             return result;
         }
