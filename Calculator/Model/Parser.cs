@@ -90,8 +90,13 @@ namespace Calculator.Model
                 cleaned_commas.RemoveRange(0, 2);
                 cleaned_commas.Insert(0, new_index0);
             }
+            //Handles if the count is only 2
+            else if(cleaned_commas.Count == 2)
+            {
+                parsedResult.Enqueue(cleaned_commas[0]);
+            }
 
-            //Allows for negative numbers to inputed. Like 2+-1 or 2*-(π)
+            //Allows for negative numbers to inputed. Like 2+-1 or 2*-(π) or 3*(-2)
             bool addLast = false;
             for (int i = 1;i < cleaned_commas.Count() - 1; i++)
             {
