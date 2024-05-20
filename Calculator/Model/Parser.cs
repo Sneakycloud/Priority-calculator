@@ -97,13 +97,13 @@ namespace Calculator.Model
             {
                 addLast = false;
                 //Check if it should be stored as a negative
-                if (cleaned_commas[i] == "-" && Regex.IsMatch(cleaned_commas[i-1],infixOperators.Remove(0,1) + singleOperators))
+                if (cleaned_commas[i] == "-" && Regex.IsMatch(cleaned_commas[i-1],infixOperators.Remove(0,1) + singleOperators + @"|([\(])"))
                 {
                     //Based on paranthasis solve the problem
                     if (double.TryParse(cleaned_commas[i+1], out _))
                     {
                         parsedResult.Enqueue($"-{cleaned_commas[i + 1]}");
-                        addLast = true;
+                        if(i == cleaned_commas.Count()-2) addLast = true;
                         i++;
                     }
                     else if (cleaned_commas[i+1] == "(" || Regex.IsMatch(cleaned_commas[i + 1], constants.Remove(0, 1)))
