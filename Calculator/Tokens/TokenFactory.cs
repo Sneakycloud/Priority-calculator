@@ -109,7 +109,7 @@ namespace Calculator.Tokens
             {
                 return new LnFunc();
             }
-            else if (stringPart == "sqrt")
+            else if (stringPart == "√")
             {
                 return new SqrtFunc();
             }

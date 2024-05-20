@@ -24,7 +24,7 @@ namespace Calculator.Tokens
 
         public override string ToString()
         {
-            return "sqrt";
+            return "√";
         }
 
     }

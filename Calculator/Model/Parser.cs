@@ -26,9 +26,9 @@ namespace Calculator.Model
 
             //Define a pattern of operators
 
-            string Operatorpattern = @"([\+\-\*\/\(\)\^\%\!πe])";
+            string Operatorpattern = @"([\+\-\*\/\(\)\^\%\!πe√])";
             string trigFunctionPattern = @"|(sin)|(cos)|(tan)|(arcsin)|(arccos)|(arctan)";
-            string functionPattern = @"|(max)|(min)|\s+|(ncr)|(npr)|(log)|(ln)|(sqrt)";
+            string functionPattern = @"|(max)|(min)|\s+|(ncr)|(npr)|(log)|(ln)";
             
 
 
