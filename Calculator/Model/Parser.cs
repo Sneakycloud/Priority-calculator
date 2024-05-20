@@ -28,7 +28,7 @@ namespace Calculator.Model
 
             string Operatorpattern = @"([\+\-\*\/\(\)\^\%\!πe])";
             string trigFunctionPattern = @"|(sin)|(cos)|(tan)|(arcsin)|(arccos)|(arctan)";
-            string functionPattern = @"|(max)|(min)|\s+|(ncr)|(npr)|(log)|(ln)";
+            string functionPattern = @"|(max)|(min)|\s+|(ncr)|(npr)|(log)|(ln)|(sqrt)";
             
 
 
