@@ -87,7 +87,7 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.ColumnSpan="5" >
-            <MenuItem Header="Mode" Height="30" FontSize="20" >
+            <MenuItem Header="Mode" Margin="3 0" Height="30" FontSize="20" >
                 <MenuItem Name="rm" Header="Regular mode" IsCheckable="True" IsChecked="True" Click="MenuItem_Click" StaysOpenOnClick="True"/>
                 <MenuItem Name="RPNm" Header="RPN mode" IsCheckable="False" IsChecked="False" Click="MenuItem_Click" StaysOpenOnClick="True"/>
             </MenuItem>

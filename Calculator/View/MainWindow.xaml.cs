@@ -17,6 +17,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Linq.Expressions;
 using System.Windows.Media.Animation;
+using System.IO;
+using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace Calculator.View
 {
@@ -31,6 +34,9 @@ namespace Calculator.View
         {
             InitializeComponent();
             this.DataContext = _vm;
+
+            // Delete content in History.txt
+            File.WriteAllText(@"C:\Users\Administratör\Source\Repos\Priority-calculator\Calculator\View\History.txt", String.Empty);
         }
 
         public void num_Click(object sender, RoutedEventArgs e)
@@ -64,12 +70,23 @@ namespace Calculator.View
         {
             // calculate and output the result
             viewModel vm = (viewModel)this.DataContext;
-            
+
+            // Path to History.txt
+            string fullPath = @"C:\Users\Administratör\Source\Repos\Priority-calculator\Calculator\View\History.txt";
+
+            string ex = _vm.Expression + " = ";
+
             if (rm.IsChecked == true)
                 vm.Calculator();
             else
                 vm.RPN_Calculator();
 
+            ex += _vm.Expression;
+            // Add to History.txt
+            using (StreamWriter sw = File.AppendText(fullPath))
+            {
+                sw.WriteLine(ex);
+            }
         }
 
         private void op_Click(object sender, RoutedEventArgs e)
@@ -168,6 +185,5 @@ namespace Calculator.View
                 Title = "RPN Calculator";
             }
         }
-
     }
 }
