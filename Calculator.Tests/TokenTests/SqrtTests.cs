@@ -20,7 +20,7 @@ namespace CalculatorTests.TokenTests
             string result = Test.ToString();
 
             //Assert
-            result.Should().Be("sqrt");
+            result.Should().Be("√");
         }
 
 
