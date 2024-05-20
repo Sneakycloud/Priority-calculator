@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit.Sdk;
 
 namespace Calculator.Tokens
 {
@@ -107,6 +108,10 @@ namespace Calculator.Tokens
             else if (stringPart == "ln")
             {
                 return new LnFunc();
+            }
+            else if (stringPart == "sqrt")
+            {
+                return new SqrtFunc();
             }
             else
             {
