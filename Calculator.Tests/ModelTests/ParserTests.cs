@@ -17,11 +17,12 @@ namespace CalculatorTests.ModelTests
             //Arrange
             //Tests: 2 (3 * 4) / (15 - 13) + 3^2
             //The test will be run on the inputExp test queue
-            string inputExp = "22(3*4)/(15-13)+3^2";
+            string inputExp = "22*(3*4)/(15-13)+3^2";
 
             //Correctly split queue to compare the inputExp test queue with
             Queue<string> expectedStringQueue = new Queue<string>();
             expectedStringQueue.Enqueue("22");
+            expectedStringQueue.Enqueue("*");
             expectedStringQueue.Enqueue("(");
             expectedStringQueue.Enqueue("3");
             expectedStringQueue.Enqueue("*");
