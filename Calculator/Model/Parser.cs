@@ -26,13 +26,13 @@ namespace Calculator.Model
 
 
             //Define a pattern of operators
-            string infixOperators = @"([\+\-\*\/\^\%])|(ncr)|(npr)";
+            string infixOperators = @"|([\+\-\*\/\^\%])|(ncr)|(npr)";
             string singleOperators = @"|([\!√])"; //only use one side as input
             string constants = @"|([πe])";
             string paranthasis = @"|([\(\)])";
             string trigFunctionPattern = @"|(sin)|(cos)|(tan)|(arcsin)|(arccos)|(arctan)";
             string functionPattern = @"|(max)|(min)|(log)|(ln)";
-            string pattern = infixOperators + singleOperators + constants + paranthasis + trigFunctionPattern + functionPattern + @"|\s+";
+            string pattern = infixOperators.Remove(0,1) + singleOperators + constants + paranthasis + trigFunctionPattern + functionPattern + @"|\s+";
 
 
 
@@ -74,13 +74,57 @@ namespace Calculator.Model
             multiplied_input.Enqueue(cleanedInput[cleanedInput.Count()-1]);
 
             //Remove ,
+            List<string> cleaned_commas = new List<string>();
             foreach(string item in multiplied_input)
             {
                 if(item != ",")
                 {
-                    parsedResult.Enqueue(item);
+                    cleaned_commas.Add(item);
                 }
             }
+
+            //Test if the first two strings form a negative number like -5 +2
+            if(cleaned_commas.Count >= 2 && cleaned_commas[0] == "-" && double.TryParse(cleaned_commas[1], out _))
+            {
+                string new_index0 = $"-{cleaned_commas[1]}";
+                cleaned_commas.RemoveRange(0, 2);
+                cleaned_commas.Insert(0, new_index0);
+            }
+
+            //Allows for negative numbers to inputed. Like 2+-1 or 2*-(π)
+            bool addLast = false;
+            for (int i = 1;i < cleaned_commas.Count() - 1; i++)
+            {
+                addLast = false;
+                //Check if it should be stored as a negative
+                if (cleaned_commas[i] == "-" && Regex.IsMatch(cleaned_commas[i-1],infixOperators.Remove(0,1) + singleOperators))
+                {
+                    //Based on paranthasis solve the problem
+                    if (double.TryParse(cleaned_commas[i+1], out _))
+                    {
+                        parsedResult.Enqueue($"-{cleaned_commas[i + 1]}");
+                        addLast = true;
+                        i++;
+                    }
+                    else if (cleaned_commas[i+1] == "(" || Regex.IsMatch(cleaned_commas[i + 1], constants.Remove(0, 1)))
+                    {
+                        parsedResult.Enqueue("-1");
+                        parsedResult.Enqueue("*");
+                    }
+                    else
+                    {
+                        throw new Exception("Invalid subtraction");
+                    }
+
+                }
+                else
+                {
+                    if (i == 1) parsedResult.Enqueue(cleaned_commas[0]);
+                    parsedResult.Enqueue(cleaned_commas[i]);
+                }
+            }
+
+            if (!addLast) parsedResult.Enqueue(cleaned_commas[cleaned_commas.Count()-1]);
 
             // return the parsedResult string queue
             return parsedResult;
