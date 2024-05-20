@@ -18,7 +18,7 @@ namespace Calculator.Tokens
             //Divide by 0 check
             if(values.Item1 == 0)
             {
-                throw new DivideByZeroException();
+                throw new DivideByZeroException($"Divide by 0");
             }
 
             // return the quota of the two evaluated tokens

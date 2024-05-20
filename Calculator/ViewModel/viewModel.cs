@@ -31,9 +31,17 @@ namespace Calculator.ViewModel
         //Uses input expression as input and changes output expression, works as a relay
         public void Calculator()
         {
-            double Result = EvaluateExpression(Expression);
-            double rounded_result = Math.Round(Result,7);
-            Expression = $"{rounded_result.ToString()}";
+            try
+            {
+                double Result = EvaluateExpression(Expression);
+                double rounded_result = Math.Round(Result,7);
+                Expression = $"{rounded_result.ToString()}";
+            }
+            catch (Exception ex)
+            {
+                Expression = "Error: " + ex.Message;
+            }
+            
         }
 
         public double EvaluateExpression(string input)
@@ -58,9 +66,17 @@ namespace Calculator.ViewModel
 
         public void RPN_Calculator()
         {
-            double Result = RPN_EvalutateExpression(Expression);
-            double rounded_result = Math.Round(Result, 7);
-            Expression = $"{rounded_result.ToString()}";
+            try
+            {
+                double Result = RPN_EvalutateExpression(Expression);
+                double rounded_result = Math.Round(Result, 7);
+                Expression = $"{rounded_result.ToString()}";
+            }
+            catch (Exception ex )
+            {
+                Expression = "Error: " + ex.Message;
+            }
+            
         }
 
         public double RPN_EvalutateExpression(string input)

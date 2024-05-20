@@ -13,7 +13,7 @@ namespace Calculator.Tokens
         public override double eval(Stack<Token> inputStack)
         {
             //Invalid expression
-            if (inputStack.Count == 0) { throw new InvalidOperationException(); }
+            if (inputStack.Count == 0) { throw new InvalidOperationException("ArcSin lacks operand"); }
 
             double value = inputStack.Pop().eval(inputStack);
 
