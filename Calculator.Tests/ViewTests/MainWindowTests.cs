@@ -32,7 +32,7 @@ namespace CalculatorTests.ViewTests
             Thread testThread = new Thread(() =>
             {
                 // Arrange
-                var mainWindow = new MainWindow();
+                var mainWindow = new MainWindow(true);
                 vm = (viewModel)mainWindow.DataContext;
 
                 Button numericButton1 = mainWindow.FindName("btn1") as Button;

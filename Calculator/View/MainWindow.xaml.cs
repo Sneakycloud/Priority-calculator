@@ -17,6 +17,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Linq.Expressions;
 using System.Windows.Media.Animation;
+using System.IO;
+using System.Diagnostics;
 
 namespace Calculator.View
 {
@@ -26,11 +28,23 @@ namespace Calculator.View
     public partial class MainWindow : Window
     {
         private viewModel _vm = new viewModel();
+        private string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "View", "History.txt"));
 
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = _vm;
+            // Delete content in History.txt
+            File.WriteAllText(path, String.Empty);
+        }
+
+        public MainWindow(bool testing)
+        {
+            InitializeComponent();
+            this.DataContext = _vm;
+            // Delete content in History.txt
+            if(testing) path = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "Calculator", "View", "History.txt")); ;
+            File.WriteAllText(path, String.Empty);
         }
 
         public void num_Click(object sender, RoutedEventArgs e)
@@ -64,12 +78,23 @@ namespace Calculator.View
         {
             // calculate and output the result
             viewModel vm = (viewModel)this.DataContext;
-            
+
+            // Path to History.txt
+            string fullPath = path;
+
+            string ex = _vm.Expression + " = ";
+
             if (rm.IsChecked == true)
                 vm.Calculator();
             else
                 vm.RPN_Calculator();
 
+            ex += _vm.Expression;
+            // Add to History.txt
+            using (StreamWriter sw = File.AppendText(fullPath))
+            {
+                sw.WriteLine(ex);
+            }
         }
 
         private void op_Click(object sender, RoutedEventArgs e)
@@ -168,6 +193,10 @@ namespace Calculator.View
                 Title = "RPN Calculator";
             }
         }
-
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            // Open history in notepad
+            Process.Start("notepad.exe", path);
+        }
     }
 }
