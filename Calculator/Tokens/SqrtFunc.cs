@@ -6,23 +6,26 @@ using System.Threading.Tasks;
 
 namespace Calculator.Tokens
 {
-    public class ArcCosFunc : Token
+    public class SqrtFunc : Token
     {
-        public ArcCosFunc() : base(0, true, true) { }
+
+        public SqrtFunc() : base(0, true, true) { }
 
         public override double eval(Stack<Token> inputStack)
         {
-            //Invalid expression
-            if (inputStack.Count == 0) { throw new InvalidOperationException("ArcCos lacks operand"); }
-
+            if (inputStack.Count == 0) { throw new InvalidOperationException(); }
+            
             double value = inputStack.Pop().eval(inputStack);
 
-            return Math.Acos(value);
+            if(value < 0) { throw new InvalidOperationException($"Not Real"); }
+            
+            return Math.Sqrt(value);
         }
 
         public override string ToString()
         {
-            return "ArcCos";
+            return "√";
         }
+
     }
 }

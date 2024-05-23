@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit.Sdk;
 
 namespace Calculator.Tokens
 {
@@ -108,9 +109,13 @@ namespace Calculator.Tokens
             {
                 return new LnFunc();
             }
+            else if (stringPart == "√")
+            {
+                return new SqrtFunc();
+            }
             else
             {
-                throw new Exception();
+                throw new Exception($"Invalid input");
             }
         }
     }

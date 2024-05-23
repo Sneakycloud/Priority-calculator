@@ -31,9 +31,17 @@ namespace Calculator.ViewModel
         //Uses input expression as input and changes output expression, works as a relay
         public void Calculator()
         {
-            double Result = EvaluateExpression(Expression);
-            double rounded_result = Math.Round(Result,7);
-            Expression = $"{rounded_result.ToString()}";
+            try
+            {
+                double Result = EvaluateExpression(Expression);
+                double rounded_result = Math.Round(Result,7);
+                Expression = $"{rounded_result.ToString()}";
+            }
+            catch (Exception ex)
+            {
+                Expression = "Error: " + ex.Message;
+            }
+            
         }
 
         public double EvaluateExpression(string input)
@@ -51,16 +59,24 @@ namespace Calculator.ViewModel
             double result = RPNstack.Pop().eval(RPNstack);
 
             //Check if the expression was completely evaluated
-            if (RPNstack.Count == 1 ) { throw new Exception(); }
+            if (RPNstack.Count >= 1 ) { throw new Exception("Invalid Expression"); }
 
             return result;
         }
 
         public void RPN_Calculator()
         {
-            double Result = RPN_EvalutateExpression(Expression);
-            double rounded_result = Math.Round(Result, 7);
-            Expression = $"{rounded_result.ToString()}";
+            try
+            {
+                double Result = RPN_EvalutateExpression(Expression);
+                double rounded_result = Math.Round(Result, 7);
+                Expression = $"{rounded_result.ToString()}";
+            }
+            catch (Exception ex )
+            {
+                Expression = "Error: " + ex.Message;
+            }
+            
         }
 
         public double RPN_EvalutateExpression(string input)
@@ -82,7 +98,7 @@ namespace Calculator.ViewModel
             double result = RPNstack.Pop().eval(RPNstack);
 
             //Check if the expression was completely evaluated
-            if (RPNstack.Count == 1) { throw new Exception(); }
+            if (RPNstack.Count >= 1) { throw new Exception("Invalid Expression"); }
 
             return result;
         }
