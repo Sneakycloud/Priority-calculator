@@ -22,6 +22,7 @@ namespace CalculatorTests.ModelTests
             //Correctly split queue to compare the inputExp test queue with
             Queue<string> expectedStringQueue = new Queue<string>();
             expectedStringQueue.Enqueue("22");
+            expectedStringQueue.Enqueue("*");
             expectedStringQueue.Enqueue("(");
             expectedStringQueue.Enqueue("3");
             expectedStringQueue.Enqueue("*");

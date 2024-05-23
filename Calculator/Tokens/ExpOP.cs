@@ -13,6 +13,12 @@ namespace Calculator.Tokens
         public override double eval(Stack<Token> inputStack)
         {
             (double, double) values = getValues(inputStack);
+
+            if(values.Item2 < 0 && !(Math.Abs(values.Item1 % 1) <= (Double.Epsilon * 100)))
+            {
+                throw new Exception($"Iimaginary numbers not allowed");
+            }
+
             return Math.Pow(values.Item2, values.Item1);
         }
 

@@ -13,6 +13,7 @@ namespace Calculator.Tokens
         public override double eval(Stack<Token> inputStack)
         {
             (double, double) values = getValues(inputStack);
+            if(values.Item1 == 0) { throw new Exception($"Undefined"); }
             return values.Item2 % values.Item1;
         }
 

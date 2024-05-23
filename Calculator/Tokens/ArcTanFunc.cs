@@ -13,11 +13,11 @@ namespace Calculator.Tokens
         public override double eval(Stack<Token> inputStack)
         {
             //Invalid expression
-            if (inputStack.Count == 0) { throw new InvalidOperationException(); }
+            if (inputStack.Count == 0) { throw new InvalidOperationException("ArcTan lacks operand"); }
 
             double value = inputStack.Pop().eval(inputStack);
 
-            if(value == double.PositiveInfinity || value == double.NegativeInfinity) {  throw new InvalidOperationException(); }
+            if(value == double.PositiveInfinity || value == double.NegativeInfinity) {  throw new InvalidOperationException("Infinity is not defined"); }
 
             return Math.Atan(value);
         }
