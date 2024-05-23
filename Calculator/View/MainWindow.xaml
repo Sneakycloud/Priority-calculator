@@ -122,5 +122,4 @@
         <Button Name="btn_tog" Content="1st" Grid.Row="2" Grid.Column="2" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="35" FontWeight="Bold" Click="tog_Click" Margin="5" />
 
     </Grid>
-
 </Window>
