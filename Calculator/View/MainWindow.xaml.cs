@@ -28,14 +28,14 @@ namespace Calculator.View
     public partial class MainWindow : Window
     {
         private viewModel _vm = new viewModel();
+        private string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "View", "History.txt"));
 
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = _vm;
-
             // Delete content in History.txt
-            File.WriteAllText(@"C:\Users\Administratör\Source\Repos\Priority-calculator\Calculator\View\History.txt", String.Empty);
+            File.WriteAllText(path, String.Empty);
         }
 
         public void num_Click(object sender, RoutedEventArgs e)
@@ -71,7 +71,7 @@ namespace Calculator.View
             viewModel vm = (viewModel)this.DataContext;
 
             // Path to History.txt
-            string fullPath = @"C:\Users\Administratör\Source\Repos\Priority-calculator\Calculator\View\History.txt";
+            string fullPath = path;
 
             string ex = _vm.Expression + " = ";
 
@@ -187,7 +187,7 @@ namespace Calculator.View
         private void History_Click(object sender, RoutedEventArgs e)
         {
             // Open history in notepad
-            Process.Start("notepad.exe", @"C:\Users\Administratör\Source\Repos\Priority-calculator\Calculator\View\History.txt");
+            Process.Start("notepad.exe", path);
         }
     }
 }
