@@ -38,6 +38,15 @@ namespace Calculator.View
             File.WriteAllText(path, String.Empty);
         }
 
+        public MainWindow(bool testing)
+        {
+            InitializeComponent();
+            this.DataContext = _vm;
+            // Delete content in History.txt
+            if(testing) path = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "Calculator", "View", "History.txt")); ;
+            File.WriteAllText(path, String.Empty);
+        }
+
         public void num_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
