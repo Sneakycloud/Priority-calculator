@@ -18,7 +18,6 @@ using System.Runtime.CompilerServices;
 using System.Linq.Expressions;
 using System.Windows.Media.Animation;
 using System.IO;
-using Microsoft.Win32;
 using System.Diagnostics;
 
 namespace Calculator.View
@@ -185,7 +184,6 @@ namespace Calculator.View
                 Title = "RPN Calculator";
             }
         }
-
         private void History_Click(object sender, RoutedEventArgs e)
         {
             // Open history in notepad
