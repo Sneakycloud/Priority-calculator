@@ -91,6 +91,7 @@
                 <MenuItem Name="rm" Header="Regular mode" IsCheckable="True" IsChecked="True" Click="MenuItem_Click" StaysOpenOnClick="True"/>
                 <MenuItem Name="RPNm" Header="RPN mode" IsCheckable="False" IsChecked="False" Click="MenuItem_Click" StaysOpenOnClick="True"/>
             </MenuItem>
+            <MenuItem Header="History" Margin="3 0" Height="30" FontSize="20" Click="History_Click" ></MenuItem>
         </Menu>
 
         <TextBox Name="tbx" Grid.Row="1" Grid.ColumnSpan="5" Margin="5" FontSize="30" FontFamily="Rod" TextAlignment="Right" VerticalContentAlignment="Center" BorderBrush="{StaticResource Button.Static.Border}" BorderThickness="3" Text="{Binding Path=Expression, Mode=TwoWay}"/>
@@ -123,6 +124,7 @@
         <Button Name="btn_tog" Content="1st" Grid.Row="2" Grid.Column="2" FontFamily="Rod" Background="PeachPuff" Foreground="Black" FontSize="35" FontWeight="Bold" Click="tog_Click" Margin="5" />
 
     </Grid>
+    
     
     
 

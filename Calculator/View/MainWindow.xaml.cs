@@ -185,5 +185,11 @@ namespace Calculator.View
                 Title = "RPN Calculator";
             }
         }
+
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            // Open history in notepad
+            Process.Start("notepad.exe", @"C:\Users\Administratör\Source\Repos\Priority-calculator\Calculator\View\History.txt");
+        }
     }
 }
