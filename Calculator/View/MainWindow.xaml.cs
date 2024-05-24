@@ -35,11 +35,11 @@ namespace Calculator.View
             this.DataContext = _vm;
         }
 
-        //public MainWindow(bool testing)
-        //{
-        //    InitializeComponent();
-        //    this.DataContext = _vm;
-        //}
+        public MainWindow(bool testing)
+        {
+            InitializeComponent();
+            this.DataContext = _vm;
+        }
 
         public void num_Click(object sender, RoutedEventArgs e)
         {
