@@ -17,8 +17,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Linq.Expressions;
 using System.Windows.Media.Animation;
-using System.IO;
-using System.Diagnostics;
 
 namespace Calculator.View
 {
@@ -72,7 +70,6 @@ namespace Calculator.View
         {
             // calculate and output the result
             viewModel vm = (viewModel)this.DataContext;
-
             if (rm.IsChecked == true)
                 vm.Calculator();
             else
