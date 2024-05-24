@@ -33,6 +33,12 @@ namespace Calculator.View
             this.DataContext = _vm;
         }
 
+        public MainWindow(bool testing)
+        {
+            InitializeComponent();
+            this.DataContext = _vm;
+        }
+
         public void num_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
@@ -64,12 +70,10 @@ namespace Calculator.View
         {
             // calculate and output the result
             viewModel vm = (viewModel)this.DataContext;
-            
             if (rm.IsChecked == true)
                 vm.Calculator();
             else
                 vm.RPN_Calculator();
-
         }
 
         private void op_Click(object sender, RoutedEventArgs e)
@@ -168,6 +172,5 @@ namespace Calculator.View
                 Title = "RPN Calculator";
             }
         }
-
     }
 }

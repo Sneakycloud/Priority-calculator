@@ -106,7 +106,7 @@
         <Button Name="btn9" Content="9" Grid.Row="3" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
         <Button Name="btn0" Content="0" Grid.Row="6" Grid.Column="1" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
         <Button Name="btn_spc" Content="␣" Grid.Row="6" Grid.Column="0" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="spc_Click" Margin="5" IsEnabled="False" Opacity="0.85" />
-        <Button Name="btn_com" Content="," Grid.Row="6" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
+        <Button Name="btn_dot" Content="." Grid.Row="6" Grid.Column="2" FontFamily="Rod" Background="Ivory" Foreground="Black" FontSize="55" FontWeight="Bold" Click="num_Click" Margin="5"/>
 
         <Button Name="btn_op1" Content="+" Grid.Row="3" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
         <Button Name="btn_op2" Content="-" Grid.Row="4" Grid.Column="3" FontFamily="Rod" Background="LightSalmon" Foreground="Black" FontSize="55" FontWeight="Bold" Click="op_Click" Margin="5"/>
