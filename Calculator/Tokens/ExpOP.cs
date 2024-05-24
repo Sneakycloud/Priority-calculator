@@ -16,7 +16,7 @@ namespace Calculator.Tokens
 
             if(values.Item2 < 0 && !(Math.Abs(values.Item1 % 1) <= (Double.Epsilon * 100)))
             {
-                throw new Exception($"Im number not allowed");
+                throw new Exception($"Iimaginary numbers not allowed");
             }
 
             return Math.Pow(values.Item2, values.Item1);
