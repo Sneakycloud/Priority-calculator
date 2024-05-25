@@ -4,6 +4,9 @@ What it does
 -----------
 The priority calculator is a calculator with a GUI which supports the order of operations.
 
+Requirements
+-----------
+If you want to use decimal numbers for input you need to set your system region format to a language which uses . as its default seperator for example 2.1 which has a decimal point.
 
 Plan
 ============
